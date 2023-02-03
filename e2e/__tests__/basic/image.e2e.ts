@@ -5,6 +5,7 @@ import {
   pngURLImageJSON,
   inlineImageJSON,
 } from '@e2e-utils';
+import { describe, test, expect } from 'vitest'
 
 describe('测试图片', () => {
   test('inline 的图片类型正常', async () => {

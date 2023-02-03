@@ -12,7 +12,7 @@ export const parseCanvasToBitmap = (canvas: HTMLCanvasElement) => {
   let url;
   try {
     url = canvas.toDataURL();
-  } catch (e) {
+  } catch (e: any) {
     const errMsg = e.toString();
 
     // 存在跨域问题

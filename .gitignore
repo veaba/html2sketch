@@ -27,7 +27,6 @@ package-lock.json
 # visual studio code
 .history
 *.log
-functions/*
 lambda/mock/index.js
 .temp/**
 

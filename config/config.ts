@@ -38,4 +38,5 @@ export default defineConfig({
   theme: {
     '@c-primary': '#ff9800',
   },
+  mfsu:{}
 });
