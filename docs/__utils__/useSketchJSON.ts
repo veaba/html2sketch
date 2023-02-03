@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
 import copy from 'copy-to-clipboard';
-import { nodeToGroup, nodeToSketchSymbol } from 'html2sketch';
+import { nodeToGroup, nodeToSketchSymbol } from '@html2sketch';
 import { message } from 'antd';
 
 declare global {

@@ -1,5 +1,5 @@
-import { Artboard } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Artboard } from '@html2sketch';
+import { describe, expect, it  } from 'vitest'
 
 describe('Artboard', () => {
   it('toSketchJSON', () => {

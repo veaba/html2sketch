@@ -1,5 +1,5 @@
-import { parsePseudoToShape, Rectangle } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { parsePseudoToShape, Rectangle } from '@html2sketch';
+import { describe, expect, it, beforeAll  } from 'vitest'
 
 describe('parsePseudoToShape', () => {
   beforeAll(() => {

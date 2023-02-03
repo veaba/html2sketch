@@ -1,5 +1,5 @@
-import ColorAsset from 'html2sketch/models/Style/ColorAsset';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import ColorAsset from '@html2sketch/models/Style/ColorAsset';
+import { describe, expect, it } from 'vitest'
 
 describe('ColorAsset 类', () => {
   it('默认创建', () => {

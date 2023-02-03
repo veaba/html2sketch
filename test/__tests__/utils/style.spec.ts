@@ -1,5 +1,5 @@
-import { isDefaultStyles } from 'html2sketch/utils/style';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { isDefaultStyles } from '@html2sketch/utils/style';
+import { describe, expect, it } from 'vitest'
 
 describe('isDefaultStyles', () => {
   it('是默认样式', () => {

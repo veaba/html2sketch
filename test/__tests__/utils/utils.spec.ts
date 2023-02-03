@@ -1,4 +1,4 @@
-import { uuid, checkNoNull } from 'html2sketch/utils/utils';
+import { uuid, checkNoNull } from '@html2sketch/utils/utils';
 import { describe, expect, it,beforeAll,afterAll} from 'vitest'
 
 describe('uuid', () => {

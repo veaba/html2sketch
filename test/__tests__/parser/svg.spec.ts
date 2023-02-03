@@ -1,5 +1,5 @@
-import { parseToSvg } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { parseToSvg } from '@html2sketch';
+import { describe, expect, it, beforeAll  } from 'vitest'
 import {
   antdParserJSON,
   isUpdate,

@@ -42,7 +42,7 @@ export const base64ToSvgString = (url: string): string | undefined => {
 export const getImageBase64URL = (
   img: HTMLImageElement,
   format: string = 'png',
-) => {
+): string => {
   // 1. 创建canvas DOM元素，并设置其宽高和图片一样
   let canvas: HTMLCanvasElement | null = document.createElement('canvas');
 
@@ -55,6 +55,7 @@ export const getImageBase64URL = (
 
   // 3. 返回的是一串Base64编码的URL并指定格式
   const dataURL = canvas.toDataURL(`image/${format}`);
+  console.log('dataURL=>', dataURL)
   canvas = null; // 释放
   return dataURL;
 };

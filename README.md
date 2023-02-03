@@ -85,7 +85,7 @@ yarn add html2sketch
 this method transforms a DOM node into Sketch Objects without processing children of nodes
 
 ```js
-import { nodeToLayer } from 'html2sketch';
+import { nodeToLayer } from '@html2sketch';
 
 const fn = async () => {
   // 1. get DOM node
@@ -110,7 +110,7 @@ fn().then((json) => {
 This method transforms a DOM node and its children into a Sketch Group Object
 
 ```js
-import { nodeToGroup } from 'html2sketch';
+import { nodeToGroup } from '@html2sketch';
 
 const fn = async () => {
   // 1. get DOM node
@@ -135,7 +135,7 @@ fn().then((json) => {
 This method transforms a DOM node and its children into a Sketch Symbol Object
 
 ```js
-import { nodeToSketchSymbol } from 'html2sketch';
+import { nodeToSketchSymbol } from '@html2sketch';
 
 const fn = async () => {
   // 1. get DOM node

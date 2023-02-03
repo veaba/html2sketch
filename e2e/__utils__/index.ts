@@ -2,7 +2,7 @@ import { join, resolve } from 'path';
 import puppeteer from 'puppeteer';
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
 import { writeFileSync } from 'fs';
-import { NodeToSketchSymbolOptions, SymbolMaster } from 'html2sketch';
+import { NodeToSketchSymbolOptions, SymbolMaster } from '@html2sketch';
 
 import defaultModal from './json/default-modal.json';
 import inlineImage from './json/inline-image.json';

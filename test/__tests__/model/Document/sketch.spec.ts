@@ -1,5 +1,5 @@
-import { Text, SketchDocument } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Text, SketchDocument } from '@html2sketch';
+import { describe, expect, it  } from 'vitest'
 
 describe('Sketch 文档类', () => {
   it('addPage', () => {

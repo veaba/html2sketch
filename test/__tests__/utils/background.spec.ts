@@ -1,10 +1,10 @@
-import { BackgroundImageType } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { BackgroundImageType } from '@html2sketch';
+import { describe, test, expect, it  } from 'vitest'
 import {
   getActualImageSize,
   parseBackgroundImageType,
   parseLinearGradient,
-} from 'html2sketch/utils/background';
+} from '@html2sketch/utils/background';
 
 describe('getActualImageSize', () => {
   test('background-size: contain', () => {

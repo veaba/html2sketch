@@ -108,7 +108,7 @@ export const urlToRawSVG = async (url: string) => {
     data = await fetch(url, {
       mode: 'cors',
     });
-  } catch (error) {
+  } catch (error: any) {
     const maybeCorsError = error.toString().includes('Failed to fetch');
     if (maybeCorsError) {
       const corsPrefix = `https://cors-anywhere.herokuapp.com/`;

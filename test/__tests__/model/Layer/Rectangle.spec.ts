@@ -1,5 +1,5 @@
-import { Rectangle } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Rectangle } from '@html2sketch';
+import { describe, expect, it } from 'vitest'
 
 describe('Rectangle 类', () => {
   describe('toKonvaJSON 转换正常', () => {

@@ -1,5 +1,5 @@
-import { Frame } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Frame } from '@html2sketch';
+import { describe, expect, it  } from 'vitest'
 
 describe('Frame 类', () => {
   describe('正常生成 Frame ', () => {

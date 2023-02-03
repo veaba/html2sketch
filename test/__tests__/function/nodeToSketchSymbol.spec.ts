@@ -1,8 +1,8 @@
-import { nodeToSketchSymbol, ResizingConstraint } from 'html2sketch';
+import { nodeToSketchSymbol, ResizingConstraint } from '@html2sketch';
 import {
   calcResizingConstraint,
   getGroupLayout,
-} from 'html2sketch/utils/layout';
+} from '@html2sketch/utils/layout';
 import { setupTestNode } from '@test-utils';
 import { describe, test, expect, it, beforeAll  } from 'vitest'
 

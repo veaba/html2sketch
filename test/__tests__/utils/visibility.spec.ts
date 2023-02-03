@@ -1,5 +1,5 @@
-import { isNodeVisible, isTextVisible } from 'html2sketch/utils/visibility';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { isNodeVisible, isTextVisible } from '@html2sketch/utils/visibility';
+import { describe, expect, it, beforeAll  } from 'vitest'
 
 describe('isNodeVisible', () => {
   describe('正确识别可见节点', () => {

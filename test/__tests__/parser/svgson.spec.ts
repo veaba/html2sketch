@@ -1,10 +1,10 @@
-import { SketchFormat, Svgson, Frame, Gradient } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { SketchFormat, Svgson, Frame, Gradient } from '@html2sketch';
+import { describe, expect, it  } from 'vitest'
 import {
   calcFrameScale,
   normalizeWindingRule,
   pathToShapeGroup,
-} from 'html2sketch/parser/svgson';
+} from '@html2sketch/parser/svgson';
 import {
   svgPath,
   rect,

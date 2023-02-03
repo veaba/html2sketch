@@ -1,5 +1,5 @@
-import Style from 'html2sketch/models/Style/Style';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import Style from '@html2sketch/models/Style/Style';
+import { describe, expect, it } from 'vitest'
 
 describe('Style 类', () => {
   describe('parserStyleString', () => {

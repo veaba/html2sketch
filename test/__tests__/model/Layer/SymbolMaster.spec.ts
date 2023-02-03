@@ -1,5 +1,5 @@
-import { SymbolMaster } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { SymbolMaster } from '@html2sketch';
+import { describe, expect, it  } from 'vitest'
 
 describe('SymbolMaster 类', () => {
   describe('Symbol 创建', () => {

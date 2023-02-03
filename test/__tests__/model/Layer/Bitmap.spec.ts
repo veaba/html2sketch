@@ -1,6 +1,6 @@
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
-import { Bitmap } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Bitmap } from '@html2sketch';
+import { describe, expect, it } from 'vitest'
 
 describe('Bitmap 类', () => {
   describe('创建', () => {

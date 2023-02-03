@@ -1,5 +1,5 @@
-import { Page } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Page } from '@html2sketch';
+import { describe, expect, it } from 'vitest'
 
 describe('Page 类', () => {
   describe('Page 创建', () => {

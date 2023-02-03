@@ -1,5 +1,5 @@
-import { getName } from 'html2sketch/utils/name';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { getName } from '@html2sketch/utils/name';
+import { describe, expect, it  } from 'vitest'
 
 describe('getName', () => {
   it('编组', () => {

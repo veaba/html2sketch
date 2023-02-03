@@ -1,8 +1,8 @@
 import {
   isExistPseudoShape,
   isExistPseudoText,
-} from 'html2sketch/utils/pseudo';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+} from '@html2sketch/utils/pseudo';
+import { describe, expect, it, beforeAll  } from 'vitest'
 
 describe('isExistPseudoShape', () => {
   beforeAll(() => {

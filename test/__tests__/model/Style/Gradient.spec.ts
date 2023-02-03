@@ -1,4 +1,4 @@
-import Gradient from 'html2sketch/models/Style/Gradient';
+import Gradient from '@html2sketch/models/Style/Gradient';
 import { describe, test, expect, it, beforeAll  } from 'vitest'
 
 describe('Gradient 类', () => {

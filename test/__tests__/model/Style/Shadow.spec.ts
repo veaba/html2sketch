@@ -1,5 +1,5 @@
-import BaseShadow from 'html2sketch/models/Base/BaseShadow';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import BaseShadow from '@html2sketch/models/Base/BaseShadow';
+import { describe, test, expect, it } from 'vitest'
 
 const { shadowStringToObject, splitShadowString } = BaseShadow;
 describe('Shadow 类', () => {

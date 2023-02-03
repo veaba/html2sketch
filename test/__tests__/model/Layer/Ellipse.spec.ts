@@ -1,5 +1,5 @@
-import { Ellipse } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Ellipse } from '@html2sketch';
+import { describe, expect, it  } from 'vitest'
 
 describe('Ellipse', () => {
   it('正常创建', () => {

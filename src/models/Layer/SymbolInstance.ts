@@ -21,7 +21,7 @@ class SymbolInstance extends BaseLayer {
       _class: 'symbolInstance',
       frame: this.frame.toSketchJSON(),
 
-      booleanOperation: SketchFormat.BooleanOperation.NA,
+      booleanOperation: SketchFormat.BooleanOperation.None,
       do_objectID: this.id,
       symbolID: this.symbolID,
       exportOptions: defaultExportOptions,
@@ -35,6 +35,7 @@ class SymbolInstance extends BaseLayer {
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
+      isTemplate: false,
       isLocked: this.locked,
       name: this.name,
       rotation: 0,

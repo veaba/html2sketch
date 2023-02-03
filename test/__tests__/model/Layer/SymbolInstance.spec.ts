@@ -1,5 +1,5 @@
-import { SymbolInstance } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { SymbolInstance } from '@html2sketch';
+import { describe, expect, it } from 'vitest'
 
 describe('SymbolInstance 类', () => {
   it('初始化设置 symbolID', () => {

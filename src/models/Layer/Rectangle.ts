@@ -60,10 +60,11 @@ class Rectangle extends BaseLayer {
       fixedRadius: 0,
       style: this.style.toSketchJSON(),
       edited: false,
+      isTemplate: false,
       pointRadiusBehaviour: 1,
       points: this.getSketchPoints(),
       isClosed: true,
-      booleanOperation: SketchFormat.BooleanOperation.NA,
+      booleanOperation: SketchFormat.BooleanOperation.None,
       exportOptions: defaultExportOptions,
       isVisible: true,
       isFixedToViewport: false,
@@ -93,11 +94,11 @@ class Rectangle extends BaseLayer {
           typeof cornerRadius === 'number' || cornerRadius instanceof Array
             ? cornerRadius
             : [
-                cornerRadius.topLeft,
-                cornerRadius.topRight,
-                cornerRadius.bottomRight,
-                cornerRadius.bottomLeft,
-              ],
+              cornerRadius.topLeft,
+              cornerRadius.topRight,
+              cornerRadius.bottomRight,
+              cornerRadius.bottomLeft,
+            ],
       },
       className: this.name,
     };
@@ -125,11 +126,13 @@ class Rectangle extends BaseLayer {
       bottomRight = cornerRadius.bottomRight;
       bottomLeft = cornerRadius.bottomLeft;
     }
+    // @TODO 补充了 cornerStyle: 0,
     return [
       {
         _class: 'curvePoint',
         cornerRadius: topLeft,
         curveFrom: '{0, 0}',
+        cornerStyle: 0,
         curveMode: 1,
         curveTo: '{0, 0}',
         hasCurveFrom: false,
@@ -140,6 +143,7 @@ class Rectangle extends BaseLayer {
         _class: 'curvePoint',
         cornerRadius: topRight,
         curveFrom: '{1, 0}',
+        cornerStyle: 0,
         curveMode: 1,
         curveTo: '{1, 0}',
         hasCurveFrom: false,
@@ -151,6 +155,7 @@ class Rectangle extends BaseLayer {
         cornerRadius: bottomRight,
         curveFrom: '{1, 1}',
         curveMode: 1,
+        cornerStyle: 0,
         curveTo: '{1, 1}',
         hasCurveFrom: false,
         hasCurveTo: false,
@@ -161,6 +166,7 @@ class Rectangle extends BaseLayer {
         cornerRadius: bottomLeft,
         curveFrom: '{0, 1}',
         curveMode: 1,
+        cornerStyle: 0,
         curveTo: '{0, 1}',
         hasCurveFrom: false,
         hasCurveTo: false,

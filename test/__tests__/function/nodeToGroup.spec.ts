@@ -1,4 +1,4 @@
-import { nodeToGroup } from 'html2sketch';
+import { nodeToGroup } from '@html2sketch';
 import { setupTestNode } from '@test-utils';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';

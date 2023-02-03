@@ -30,7 +30,7 @@ yarn add html2sketch
 将 DOM 节点转成 Sketch 的对象,转换时不处理节点的子级
 
 ```js
-import { nodeToLayer } from 'html2sketch';
+import { nodeToLayer } from '@html2sketch';
 
 const fn = async () => {
   // 1. 获取 DOM 节点
@@ -55,7 +55,7 @@ fn().then((json) => {
 将 DOM 节点以及它的子级整体转成 Sketch 的 Group 对象
 
 ```js
-import { nodeToGroup } from 'html2sketch';
+import { nodeToGroup } from '@html2sketch';
 
 const fn = async () => {
   // 1. 获取 DOM 节点
@@ -80,7 +80,7 @@ fn().then((json) => {
 将 DOM 节点转 Sketch 的 Symbol 对象
 
 ```js
-import { nodeToSketchSymbol } from 'html2sketch';
+import { nodeToSketchSymbol } from '@html2sketch';
 
 const fn = async () => {
   // 1. 获取 DOM 节点

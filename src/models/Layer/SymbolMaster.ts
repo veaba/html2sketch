@@ -146,14 +146,15 @@ class SymbolMaster extends BaseLayer {
       allowsOverrides: true,
 
       backgroundColor: this.backgroundColor.toSketchJSON(),
-      booleanOperation: SketchFormat.BooleanOperation.NA,
-      changeIdentifier: 0,
+      booleanOperation: SketchFormat.BooleanOperation.None,
+      // @TODO 移除了两个
+      // changeIdentifier: 0,
+      // includeInCloudUpload: true,
       do_objectID: this.id,
       symbolID: this.symbolID,
       exportOptions: defaultExportOptions,
 
       hasClickThrough: true,
-      includeInCloudUpload: true,
       hasBackgroundColor: false,
       includeBackgroundColorInExport: true,
       resizesContent: false,
@@ -173,6 +174,7 @@ class SymbolMaster extends BaseLayer {
       isFlippedHorizontal: false,
       isFlippedVertical: false,
       isLocked: this.locked,
+      isTemplate: false,
       isFlowHome: false,
       name: this.name,
       rotation: 0,

@@ -1,5 +1,5 @@
-import Image from 'html2sketch/models/Style/Image';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import Image from '@html2sketch/models/Style/Image';
+import { describe, expect, it } from 'vitest'
 
 describe('Image 类', () => {
   it('创建时地址错误 直接抛出错误', () => {

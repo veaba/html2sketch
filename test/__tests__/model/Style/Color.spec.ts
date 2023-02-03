@@ -1,5 +1,5 @@
-import Color from 'html2sketch/models/Style/Color';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import Color from '@html2sketch/models/Style/Color';
+import { describe, expect, it } from 'vitest'
 
 describe('Color 类', () => {
   describe('正常创建', () => {

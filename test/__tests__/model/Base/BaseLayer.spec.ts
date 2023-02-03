@@ -1,6 +1,6 @@
-import { ResizingConstraint } from 'html2sketch';
-import BaseLayer from 'html2sketch/models/Base/BaseLayer';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { ResizingConstraint } from '@html2sketch';
+import BaseLayer from '@html2sketch/models/Base/BaseLayer';
+import { describe, test, expect } from 'vitest'
 
 class TestGroup extends BaseLayer {
   constructor() {

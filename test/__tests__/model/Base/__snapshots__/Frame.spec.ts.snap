@@ -1,4 +1,22 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`Frame 类 > 正常生成 Frame  > 不传参 1`] = `
+{
+  "height": 0,
+  "width": 0,
+  "x": 0,
+  "y": 0,
+}
+`;
+
+exports[`Frame 类 > 正常生成 Frame  > 传参 1`] = `
+{
+  "height": 100,
+  "width": 100,
+  "x": 5,
+  "y": 5,
+}
+`;
 
 exports[`Frame 类 正常生成 Frame  不传参 1`] = `
 Object {

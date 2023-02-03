@@ -96,11 +96,6 @@ class SketchDocument {
     return {
       _class: 'document',
       do_objectID: this.id,
-      colorSpace: SketchFormat.ColorSpace.Unmanaged,
-      foreignLayerStyles: this.foreignLayerStyles,
-      foreignTextStyles: this.foreignTextStyles,
-      foreignSymbols: [],
-      foreignSwatches: [],
       assets: {
         do_objectID: uuid(),
         _class: 'assetCollection',
@@ -113,7 +108,14 @@ class SketchDocument {
           colorAsset.toSketchJSON(),
         ),
       },
+      colorSpace: SketchFormat.ColorSpace.Unmanaged,
       currentPageIndex: 0,
+      foreignLayerStyles: this.foreignLayerStyles,
+      foreignSymbols: [],
+      foreignTextStyles: this.foreignTextStyles,
+      foreignSwatches: [],
+
+
       layerStyles: {
         _class: 'sharedStyleContainer',
         objects: this.layerStyles,
@@ -131,6 +133,17 @@ class SketchDocument {
         _class: 'swatchContainer',
         objects: this.swatches,
       },
+      fontReferences: [],
+      documentState: 1,
+      // @TODO ==>
+      patchInfo: {
+        _class: 'MSImmutablePatchInfo',
+        baseVersionID: this.id,
+        lastIntegratedPatchID: this.id,
+        localPatches: [],
+        receivedPatches: [],
+      },
+      perDocumentLibraries: []
     };
   }
 

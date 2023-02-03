@@ -60,12 +60,13 @@ class ShapeGroup extends BaseLayer {
     }
     return {
       _class: 'shapeGroup',
-      booleanOperation: SketchFormat.BooleanOperation.NA,
+      booleanOperation: SketchFormat.BooleanOperation.None,
       do_objectID: this.id,
       layers: this.layers.map((l) => l.toSketchJSON()),
       rotation: this.rotation,
       windingRule: this.windingRule,
       isVisible: true,
+      isTemplate: false,
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,

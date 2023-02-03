@@ -1,5 +1,5 @@
-import { parseCanvasToBitmap } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { parseCanvasToBitmap } from '@html2sketch';
+import { describe, afterAll, expect, it, beforeAll  } from 'vitest'
 
 describe('parseCanvasToBitmap', () => {
   const emptyImage =
@@ -26,6 +26,7 @@ describe('parseCanvasToBitmap', () => {
     it('可正常解析', () => {
       const img = document.getElementById('canvas') as HTMLCanvasElement;
       const imageLayer = parseCanvasToBitmap(img);
+      console.log('==>',imageLayer.url)
       expect(imageLayer?.url).toBe(emptyImage);
     });
   });

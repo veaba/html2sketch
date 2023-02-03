@@ -70,11 +70,12 @@ class Group extends BaseLayer {
     const groupJSON: SketchFormat.Group = {
       _class: 'group',
       do_objectID: this.id,
-      booleanOperation: SketchFormat.BooleanOperation.NA,
+      booleanOperation: SketchFormat.BooleanOperation.None,
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
       isVisible: true,
+      isTemplate: false, 
       isLocked: this.locked,
       layerListExpandedType: 0,
       name: this.name || this.class,

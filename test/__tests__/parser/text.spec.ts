@@ -1,6 +1,6 @@
-import { parseToText, Text, Group, parseToGroup } from 'html2sketch';
+import { parseToText, Text, Group, parseToGroup } from '@html2sketch';
 import { readFileSync } from 'fs';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { describe, expect, it, beforeAll  } from 'vitest'
 
 import { resolve } from 'path';
 

@@ -1,6 +1,6 @@
-import { Group, SymbolMaster } from 'html2sketch';
-import adjustSymbolParams from 'html2sketch/function/adjustSymbolParams';
-import { describe, test, expect, it  } from 'vitest'
+import { Group, SymbolMaster } from '@html2sketch';
+import adjustSymbolParams from '@html2sketch/function/adjustSymbolParams';
+import { describe, expect, it  } from 'vitest'
 
 describe('adjustSymbolParams', function () {
   it('不传参时不变', function () {

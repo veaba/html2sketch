@@ -1,7 +1,12 @@
 module.exports = {
-  extends: [require.resolve('@umijs/fabric/dist/eslint')],
   globals: {
     page: true,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    parser: 'babel-eslint',
+    ecmaVersion: 2020,
+    sourceType: 'module',
   },
   rules: {
     'import/no-extraneous-dependencies': 0,
@@ -20,8 +25,8 @@ module.exports = {
     'import/resolver': {
       alias: {
         map: [
-          ['html2sketch', './src/'],
-          ['html2sketch/*', './src/*'],
+          ['@html2sketch', './src/'],
+          ['@html2sketch/*', './src/*'],
           ['@docs-utils', './docs/__utils__'],
           ['@e2e-utils', './e2e/__utils__'],
           ['@test-utils', './tests/__utils__'],

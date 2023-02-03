@@ -1,4 +1,5 @@
-import { Declaration, parse as cssParse, Rule } from 'css';
+import type { Declaration, Rule } from 'css';
+import { parse as cssParse } from 'css';
 
 import BaseStyle from '../Base/BaseStyle';
 import { ColorParam } from './Color';

@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
 import { SVGPathData } from 'svg-pathdata';
-import { Frame, Style, ShapePathType } from 'html2sketch';
-import { defaultExportOptions } from 'html2sketch/models/utils';
+import { Frame, Style, ShapePathType } from '@html2sketch';
+import { defaultExportOptions } from '@html2sketch/models/utils';
 import { upCircleJSON, behanceJSON, dropboxJSON } from './index';
 
 import plusJSON from './json/plus.json';

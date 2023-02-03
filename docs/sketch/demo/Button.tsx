@@ -7,7 +7,7 @@ import {
   nodeToGroup,
   nodeToSketchSymbol,
   GroupLayoutType,
-} from 'html2sketch';
+} from '@html2sketch';
 import Footer, { ActionType } from './Footer';
 import { generateSymbolName } from './utils/symbolName';
 

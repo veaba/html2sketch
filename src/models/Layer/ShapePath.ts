@@ -51,7 +51,7 @@ class ShapePath extends BaseLayer {
    * 单个 ShapePath 的布尔类型
    */
   booleanOperation: SketchFormat.BooleanOperation =
-    SketchFormat.BooleanOperation.NA;
+    SketchFormat.BooleanOperation.None;
 
   /**
    * 转为 Sketch JSON 文件
@@ -66,6 +66,7 @@ class ShapePath extends BaseLayer {
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
+      isTemplate: false,
       layerListExpandedType: 0,
       nameIsFixed: false,
       resizingType: 0,
@@ -143,6 +144,7 @@ class ShapePath extends BaseLayer {
     return {
       _class: 'curvePoint',
       cornerRadius: 0,
+      cornerStyle: 0,
       curveFrom: `{${curveFromPoint.x}, ${curveFromPoint.y}}`,
       curveMode,
       curveTo: `{${curveToPoint.x}, ${curveToPoint.y}}`,

@@ -1,8 +1,8 @@
-import { Bitmap, Group, parseToShape, Rectangle } from 'html2sketch';
+import { Bitmap, Group, parseToShape, Rectangle } from '@html2sketch';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import { setupTestNode } from '@test-utils';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { describe, expect, it, beforeAll  } from 'vitest'
 
 describe('parseToShape', () => {
   beforeAll(() => {

@@ -1,5 +1,5 @@
-import { Text } from 'html2sketch';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { Text } from '@html2sketch';
+import { describe, test, expect } from 'vitest'
 
 const { fixWhiteSpace } = Text;
 

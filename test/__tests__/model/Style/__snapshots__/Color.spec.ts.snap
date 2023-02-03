@@ -1,4 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`Color 类 > toSketchJSON > 正常解析 1`] = `
+{
+  "_class": "color",
+  "alpha": 1,
+  "blue": 0,
+  "green": 0,
+  "red": 0,
+}
+`;
 
 exports[`Color 类 toSketchJSON 正常解析 1`] = `
 Object {

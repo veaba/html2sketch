@@ -3,8 +3,8 @@ import {
   urlToRawSVG,
   nodeToRawSVG,
   // rawStrToRenderStr,
-} from 'html2sketch/utils/svg';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+} from '@html2sketch/utils/svg';
+import { describe, expect, it, beforeAll  } from 'vitest'
 import {
   bgOptSvg,
   bgRawSvg,

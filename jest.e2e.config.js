@@ -6,7 +6,7 @@ module.exports = {
   },
   moduleNameMapper: {
     uuid: '<rootDir>/test/__mocks__/uuid.ts',
-    html2sketch: '<rootDir>/src',
+    '@html2sketch': '<rootDir>/src',
     '@e2e-utils': '<rootDir>/e2e/__utils__',
   },
   testTimeout: 30000,
