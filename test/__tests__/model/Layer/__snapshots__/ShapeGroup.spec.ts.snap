@@ -5,7 +5,7 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
   "_class": "shapeGroup",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "C1A0A7B4-666B-4353-B212-CA5033E4743D",
+  "do_objectID": "0525058F-3C48-4440-9728-AF79BE716818",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [],
@@ -60,7 +60,7 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
       "blendMode": 0,
       "opacity": 1,
     },
-    "do_objectID": "4DD8C879-B82E-4E05-A590-0E4A5C63D47A",
+    "do_objectID": "9C7A1B42-46A2-4811-8256-F8D55949A792",
     "endMarkerType": 0,
     "fills": [],
     "innerShadows": [],
@@ -75,90 +75,8 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
 
 exports[`ShapeGroup > 生成正常 1`] = `
 {
-  "id": "4379B62D-02A1-4775-B763-FE24D2E8838C",
+  "id": "6DCDE89D-EBA4-4A96-B9DD-15CA49BD6AFE",
   "layers": [],
-  "locked": false,
-  "name": "",
-  "resizingConstraint": 63,
-}
-`;
-
-exports[`ShapeGroup toSketchJSON 生成正常 1`] = `
-Object {
-  "_class": "shapeGroup",
-  "booleanOperation": -1,
-  "clippingMaskMode": 0,
-  "do_objectID": "UUID",
-  "exportOptions": Object {
-    "_class": "exportOptions",
-    "exportFormats": Array [],
-    "includedLayerIds": Array [],
-    "layerOptions": 0,
-    "shouldTrim": false,
-  },
-  "frame": Object {
-    "_class": "rect",
-    "constrainProportions": false,
-    "height": 0,
-    "width": 0,
-    "x": 0,
-    "y": 0,
-  },
-  "hasClickThrough": false,
-  "hasClippingMask": false,
-  "isFixedToViewport": false,
-  "isFlippedHorizontal": false,
-  "isFlippedVertical": false,
-  "isLocked": false,
-  "isVisible": true,
-  "layerListExpandedType": 0,
-  "layers": Array [],
-  "name": "shapeGroup",
-  "nameIsFixed": false,
-  "resizingConstraint": 63,
-  "resizingType": 0,
-  "rotation": 0,
-  "shouldBreakMaskChain": false,
-  "style": Object {
-    "_class": "style",
-    "borderOptions": Object {
-      "_class": "borderOptions",
-      "dashPattern": Array [],
-      "isEnabled": true,
-      "lineCapStyle": 0,
-      "lineJoinStyle": 0,
-    },
-    "borders": Array [],
-    "colorControls": Object {
-      "_class": "colorControls",
-      "brightness": 0,
-      "contrast": 1,
-      "hue": 0,
-      "isEnabled": false,
-      "saturation": 1,
-    },
-    "contextSettings": Object {
-      "_class": "graphicsContextSettings",
-      "blendMode": 0,
-      "opacity": 1,
-    },
-    "do_objectID": "UUID",
-    "endMarkerType": 0,
-    "fills": Array [],
-    "innerShadows": Array [],
-    "miterLimit": 10,
-    "shadows": Array [],
-    "startMarkerType": 0,
-    "windingRule": 1,
-  },
-  "windingRule": 1,
-}
-`;
-
-exports[`ShapeGroup 生成正常 1`] = `
-Object {
-  "id": "UUID",
-  "layers": Array [],
   "locked": false,
   "name": "",
   "resizingConstraint": 63,

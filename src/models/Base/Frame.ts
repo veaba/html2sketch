@@ -126,6 +126,7 @@ class Frame {
    * 转为 Sketch JSON 对象
    */
   toSketchJSON = (): SketchFormat.Rect => {
+    console.info('this=>',this);
     return {
       _class: 'rect',
       constrainProportions: false,
