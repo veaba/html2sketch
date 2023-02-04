@@ -5,7 +5,7 @@ import {
   isTextInputNode,
 } from '@html2sketch/utils/nodeType';
 import { setupTestNode } from '@test-utils';
-import { describe, expect, it, beforeAll  } from 'vitest'
+import { describe, expect, it, beforeAll, afterAll  } from 'vitest'
 
 describe('isTextNode', () => {
   beforeAll(() => {

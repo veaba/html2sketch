@@ -4,7 +4,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@html2sketch': resolve(__dirname, './src'),
-      '@test-utils': resolve(__dirname, './test'),
+      '@test-utils': resolve(__dirname, './test/__utils__/'),
       '@docs-utils': resolve(__dirname, './docs/__utils__'),
       '@e2e-utils': resolve(__dirname, './e2e/__utils__'),
     }

@@ -5,7 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "html2sketch": ["./src"],
-      "@test-utils": ["./tests/utils"]
+      "@test-utils": ["./test/utils"]
     }
   }
 }

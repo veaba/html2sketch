@@ -29,7 +29,7 @@ module.exports = {
           ['@html2sketch/*', './src/*'],
           ['@docs-utils', './docs/__utils__'],
           ['@e2e-utils', './e2e/__utils__'],
-          ['@test-utils', './tests/__utils__'],
+          ['@test-utils', './test/__utils__'],
         ],
       },
       typescript: {

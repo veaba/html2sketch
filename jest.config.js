@@ -10,7 +10,7 @@ module.exports = {
     '^uuid$': '<rootDir>/test/__mocks__/uuid.ts',
     '@html2sketch/(.*)$': '<rootDir>/src/$1',
     html2sketch: '<rootDir>/src',
-    '@test-utils': '<rootDir>/tests/__utils__',
+    '@test-utils': '<rootDir>/test/__utils__',
   },
   testTimeout: 30000,
   testMatch: ['**/?(*.)+(spec|test).ts'],

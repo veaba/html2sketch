@@ -1,7 +1,7 @@
 import {
   matrixToRotation,
   transformStrToMatrix,
-} from '@/utils/matrix';
+} from '@html2sketch/utils/matrix';
 import { describe, expect, it  } from 'vitest'
 
 describe('matrixToRotation', () => {
