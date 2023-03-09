@@ -123,10 +123,19 @@ export const initImageURL = (inputURL: string) => {
   const url = inputURL.startsWith('data:') ? correctURL : inputURL;
   // 如果 url 是 base64 的内联样式
   let base64;
+  console.info('inputURL=>',inputURL);
+  console.info('correctURL=>',correctURL);
+  // 如果是 base64 图片
   if (correctURL.startsWith('data:')) {
     base64 = getBase64ImageString(correctURL)!;
+    console.info('11=>',base64);
   } else {
+    // @TODO 否则非 base64 类则变为 错误的图片
+    // @TODO 但是这里无法解析 url svg 图片
+    // @TODO 如 https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg
     base64 = getBase64ImageString(errorBase64Url)!;
+
+    console.info('22=>',base64);
   }
   return { url, base64 };
 };

@@ -11,7 +11,7 @@ export declare type ColorType = {
 };
 
 export type ColorParam =
-  // Color 对象
+// Color 对象
   | ColorType
   // HEX值
   | string
@@ -56,7 +56,8 @@ class Color extends BaseStyle {
         `${rgb.replace('rgb', 'rgba')},${parseFloat(percent) / 100})`,
       );
     } else {
-      this.method = ColorCls(color);
+      const colorInput = color !== '' ? color : undefined
+      this.method = ColorCls(colorInput); // ColorCls no support empty string
     }
 
     this.alpha = this.method.alpha();

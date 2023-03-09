@@ -9,6 +9,9 @@ export default defineConfig({
       '@e2e-utils': resolve(__dirname, './e2e/__utils__'),
     }
   },
+  define:{
+    IS_TEST_ENV: true
+  },
   test: {
     environment: "happy-dom",
     setupFiles: 'vitest.setup.ts',

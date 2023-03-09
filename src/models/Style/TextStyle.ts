@@ -140,7 +140,6 @@ class TextStyle {
         skipSystemFonts,
         fontSize,
       } = param;
-
       this.color = new Color(color);
       this.fontSize = fontSize || 14;
 

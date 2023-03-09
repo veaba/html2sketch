@@ -5,7 +5,7 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
   "_class": "shapeGroup",
   "booleanOperation": -1,
   "clippingMaskMode": 0,
-  "do_objectID": "0525058F-3C48-4440-9728-AF79BE716818",
+  "do_objectID": "UUID",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [],
@@ -60,7 +60,7 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
       "blendMode": 0,
       "opacity": 1,
     },
-    "do_objectID": "9C7A1B42-46A2-4811-8256-F8D55949A792",
+    "do_objectID": "UUID",
     "endMarkerType": 0,
     "fills": [],
     "innerShadows": [],
@@ -75,7 +75,7 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
 
 exports[`ShapeGroup > 生成正常 1`] = `
 {
-  "id": "6DCDE89D-EBA4-4A96-B9DD-15CA49BD6AFE",
+  "id": "UUID",
   "layers": [],
   "locked": false,
   "name": "",
