@@ -6,6 +6,7 @@ import { resolve } from 'path';
 
 describe('parseToText', () => {
   beforeAll(() => {
+    console.log('__dirname=>', __dirname)
     document.body.innerHTML = readFileSync(
       resolve(__dirname, './html/text.html'),
       'utf-8',

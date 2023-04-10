@@ -47,5 +47,5 @@ describe('Gradient 类', () => {
       ]);
     });
   });
-  describe('圆形渐变', () => {});
+  describe.todo('圆形渐变', () => {});
 });

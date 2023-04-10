@@ -1,3 +1,4 @@
+// @vitest-environment node
 /* istanbul ignore file */
 
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';

@@ -79,6 +79,7 @@ describe('parseToBitmap', () => {
     it('正常解析出 Svg', async () => {
       const img = document.getElementById('svg') as HTMLImageElement;
       const bcr = img.getBoundingClientRect();
+      console.log('bcr=>',bcr)
       const imageLayer = await parseToBitmap(img);
 
       const svg = await StrToRenderSVG(antdRawSvg, {
