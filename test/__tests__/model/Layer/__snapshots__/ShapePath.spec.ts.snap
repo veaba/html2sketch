@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ShapePath > toSketchJSON 转换符合规范 > plus 转换正常 1`] = `
 {

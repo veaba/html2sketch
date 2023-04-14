@@ -59,3 +59,5 @@ export type LayerClassType =
   | 'text'
   | 'triangle'
   | 'svg';
+
+declare module '*.svg'

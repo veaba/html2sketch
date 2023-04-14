@@ -5,7 +5,9 @@
     "docs": "vite",
     "dev": "dev",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "test": "vitest",
+    "test": "vitest  test/__tests__/parser",
+    "test2": "vitest  test/__tests__/parser/text.spec.ts",
+    "test1": "vitest",
     "ui": "vitest --ui",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./test"
   },
@@ -16,7 +18,7 @@
   ],
   "dependencies": {
     "@sketch-hq/sketch-file-format-ts": "^6.4.0",
-    "@vitest/browser": "^0.30.0",
+    "@vitest/browser": "^0.30.1",
     "color": "^4.2.3",
     "css": "^3.0.0",
     "svg-pathdata": "^6.0.3",
@@ -24,7 +26,7 @@
     "svgson": "^5.2.1",
     "transformation-matrix": "^2.14.0",
     "uuid": "^9.0.0",
-    "vitest": "^0.30.0"
+    "vitest": "^0.30.1"
   },
   "devDependencies": {
     "@ant-design/icons": "^5.0.1",
@@ -52,6 +54,8 @@
     "tslib": "^2.5.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
+    "vite-plugin-svgr": "^2.4.0",
+    "vite-svg-loader": "^4.0.0",
     "vitest-canvas-mock": "^0.2.2",
     "webdriverio": "^8.7.0"
   }

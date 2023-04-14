@@ -2,7 +2,7 @@ import { nodeToGroup } from '@html2sketch';
 import { setupTestNode } from '@test-utils';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { describe, expect, it, beforeAll  } from 'vitest'
 
 describe('nodeToGroup', () => {
   beforeAll(() => {

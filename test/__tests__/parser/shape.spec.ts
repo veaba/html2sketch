@@ -1,17 +1,20 @@
 import { Bitmap, Group, parseToShape, Rectangle } from '@html2sketch';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { setupTestNode } from '@test-utils';
-import { describe, expect, it, beforeAll  } from 'vitest'
+import { removeTestNode, setupTestNode, vitestUrlResolve } from '@test-utils';
+import { describe, expect, it, beforeAll, afterAll } from 'vitest';
 
 describe('parseToShape', () => {
-  beforeAll(() => {
-    const innerHTML = readFileSync(
-      resolve(__dirname, './html/shape.html'),
-      'utf-8',
-    );
-    setupTestNode(innerHTML);
+  beforeAll(async () => {
+    // const innerHTML = readFileSync(
+    //   resolve(__dirname, './html/shape.html'),
+    //   'utf-8',
+    // );
+    const textPath = vitestUrlResolve(import.meta.url, './html/shape.html')
+    const response = await fetch(textPath).then(text => text.text())
+    setupTestNode(response,'parseToShape');
   });
+  afterAll(()=> {
+    removeTestNode("parseToShape")
+  })
   it('shape 正常解析', async () => {
     const node = document.getElementById('shape') as HTMLDivElement;
 

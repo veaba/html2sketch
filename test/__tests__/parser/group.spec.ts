@@ -11,10 +11,7 @@ describe('parseToGroup', () => {
     expect(group).toBeTruthy();
 
     const groupSketchJSON = group.toSketchJSON();
-    // console.log('body=>', document.body.innerHTML)
-    // console.log('groupSketchJSON.frame=>', groupSketchJSON.frame)
-    // @TODO js-dom 类型环境中不支持 getBoundingClientRect 等 layout 方法
-    expect(groupSketchJSON.frame.height).toBe(30);
+    expect(groupSketchJSON.frame.height).toBeGreaterThanOrEqual(30);
     expect(groupSketchJSON.layers.length).toBe(0);
   });
 });

@@ -2,35 +2,23 @@
 /* istanbul ignore file */
 
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
-import { readFileSync, writeFileSync } from 'fs';
+import { writeFileSync } from 'fs'; // readFileSync
 import { join, resolve } from 'path';
-import svg from './json/svg.json';
-import svgPath from './json/svg-path.json';
-import behance from './json/behance.json';
-import dropbox from './json/dropbox.json';
-import upCircleParser from './json/parser/up-circle.json';
-import upCircle from './json/up-circle.json';
-import plus from './json/plus.json';
-import text from './json/text.json';
-import shape from './json/shape.json';
-import antdParser from './json/parser/antd.json';
-import antd from './json/antd.json';
-import basic from './json/parser/basic.json';
-import pseudoText from './json/pseudo-text.json';
 
-export const svgJSON = svg;
-export const basicParserJSON = basic;
-export const antdParserJSON = antdParser;
-export const antdJSON = antd;
-export const behanceJSON = behance;
-export const dropboxJSON = dropbox;
-export const upCircleJSON = upCircle;
-export const upCircleParserJSON = upCircleParser;
-export const plusJSON = plus;
-export const svgPathJSON = svgPath;
-export const textJSON = text;
-export const shapeJSON = shape;
-export const pseudoTextJSON = pseudoText;
+export { default as svgJSON } from './json/svg.json';
+export { default as svgPathJSON } from './json/svg-path.json';
+export { default as behanceJSON } from './json/behance.json';
+export { default as dropboxJSON } from './json/dropbox.json';
+export { default as upCircleParserJSON } from './json/parser/up-circle.json';
+export { default as upCircleJSON } from './json/up-circle.json';
+export { default as plusJSON } from './json/plus.json';
+export { default as textJSON } from './json/text.json';
+export { default as shapeJSON } from './json/shape.json';
+export { default as antdParserJSON } from './json/parser/antd.json';
+export { default as antdJSON } from './json/antd.json';
+export { default as basicParserJSON } from './json/parser/basic.json';
+export { default as pseudoTextJSON } from './json/pseudo-text.json';
+
 
 export * from './testSvgData';
 
@@ -59,26 +47,14 @@ export const outputJSONData = (
   );
 };
 
-export const illustrationSvg = readFileSync(
-  resolve(__dirname, './svg/illustration.svg'),
-  'utf8',
-);
-export const antdRawSvg = readFileSync(
-  resolve(__dirname, './svg/antdRaw.svg'),
-  'utf8',
-);
-export const antdOptSvg = readFileSync(
-  resolve(__dirname, './svg/antdOpt.svg'),
-  'utf8',
-);
-export const bgRawSvg = readFileSync(
-  resolve(__dirname, './svg/bgRaw.svg'),
-  'utf8',
-);
-export const bgOptSvg = readFileSync(
-  resolve(__dirname, './svg/bgOpt.svg'),
-  'utf8',
-);
+export const illustrationSvg = await import('./svg/illustration.svg');
+export const antdRawSvg = await import('./svg/antdRaw.svg');
+
+export const antdOptSvg = await import('./svg/antdOpt.svg');
+
+export const bgRawSvg = await import('./svg/bgRaw.svg');
+
+export const bgOptSvg = await import('./svg/bgOpt.svg');
 
 /**
  * 更新
@@ -88,9 +64,24 @@ export const isUpdate = process.env.UPDATE === '1';
 /**
  * 初始化测试节点
  * @param innerHTML
+ * @param id
  */
-export const setupTestNode = (innerHTML: string) => {
+export const setupTestNode = (innerHTML: string, id: string) => {
   const node = document.createElement('div');
+  node.id = id
   node.innerHTML = innerHTML;
   document.body.prepend(node);
+};
+
+export  const removeTestNode = (id : string) => {
+  document.getElementById(id).innerHTML = ''
+}
+
+/**
+ * 将 vitest https://xx/@fs/xx 转换
+ * */
+export const vitestUrlResolve = (url: string, filePath: string) => {
+  const urlObj = new URL(url);
+  const { origin, pathname } = urlObj;
+  return origin + resolve(pathname,'../',filePath);
 };

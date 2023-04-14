@@ -1,6 +1,13 @@
+/// <reference types="vite-svg-loader" />
+
 import { defineConfig } from "vitest/config";
 import { resolve } from 'path'
+// import svgLoader from 'vite-svg-loader'
 export default defineConfig({
+  plugins: [
+    // svgLoader()
+  ],
+  assetsInclude:['**/*.html'],
   resolve: {
     alias: {
       '@html2sketch': resolve(__dirname, './src'),
@@ -12,15 +19,17 @@ export default defineConfig({
        * 类似 jest moduleNameMapper {
        *  uuid: '<rootDir>/test/__mocks__/uuid.ts',
        * }
-       * */ 
+       * */
       'UUID':resolve(__dirname, './test/__mocks__/uuid.ts'),
     }
   },
   define:{
     IS_TEST_ENV: true,
-    __dirname: JSON.stringify(__dirname),
+    __ROOT__: JSON.stringify(__dirname),
+    __TESTS__: JSON.stringify(resolve(__dirname, './test/__tests__')),
   },
   test: {
+    globals: true,
     browser: {
       enabled: true,
       name: 'chrome',
@@ -33,7 +42,7 @@ export default defineConfig({
     //   ['test/__test__/__utils__/**','jsdom']
     // ],
     // include: ['test/__test__/**'],
-    
+
     // deps: {
     //   inline: ['vitest-canvas-mock'],
     // },

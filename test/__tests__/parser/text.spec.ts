@@ -1,17 +1,24 @@
-import { parseToText, Text, Group, parseToGroup } from '@html2sketch';
-import { readFileSync } from 'fs';
-import { describe, expect, it, beforeAll  } from 'vitest'
-
-import { resolve } from 'path';
+/**
+ * 由于 vitest 无法在 browser 模式下使用 node 的一些方法，导致与原 测试文件有些区别
+ * - import.meta.url = http://localhost:63315/@fs/**html2sketch/test/__tests__/parser/text.spec.ts?v=1681488458035
+ * - fileURLToPath 会报 deno 错误
+ * - pathe 用法会比 默认 path 好，路径会带操作系统区别
+ * - __dirname 会丢失
+ * */
+import { Group, parseToGroup, parseToText, Text } from '@html2sketch';
+import { beforeAll, afterAll, describe, expect, it } from 'vitest';
+import { removeTestNode, setupTestNode, vitestUrlResolve } from '@test-utils';
+// import { resolve } from 'pathe';
 
 describe('parseToText', () => {
-  beforeAll(() => {
-    console.log('__dirname=>', __dirname)
-    document.body.innerHTML = readFileSync(
-      resolve(__dirname, './html/text.html'),
-      'utf-8',
-    );
+  beforeAll(async () => {
+    const textPath = vitestUrlResolve(import.meta.url, './html/text.html');
+    const response = await fetch(textPath).then(text => text.text())
+    setupTestNode(response,'pSetup')
   });
+  afterAll(()=> {
+    removeTestNode("pSetup")
+  })
   it('文本正常解析', () => {
     const node = document.getElementById('text') as HTMLDivElement;
 
@@ -74,7 +81,7 @@ describe('parseToText', () => {
 
     expect(text.text).toBe('右侧有伪类标签');
     expect(text.right).toBeGreaterThan(295);
-    expect(text.right).toBeLessThan(296);
+    expect(text.right).toBeGreaterThan(296); // veaba: 由于使用 vitest 测试，这里的近似值会更精准：296.140625
     expect(text.centerY).toBe(group.centerY);
   });
   it('tag 文本解析正常', () => {

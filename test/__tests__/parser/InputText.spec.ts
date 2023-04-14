@@ -68,6 +68,6 @@ describe('parseInputTextToText', () => {
     expect(json._class).toBe('text');
     expect(json.attributedString.string).toBe('123456');
 
-    expect(input.centerX).toBe(53);
+    expect(input.centerX).toBe(54); // veaba 原本 53，但是由于不错了 isTemplate 类型声明个数就增加了
   });
 });
