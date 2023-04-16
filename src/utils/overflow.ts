@@ -10,7 +10,7 @@ export const createOverflowMask = (node: Element, options?: { isInput?: boolean 
   });
   rect.name = 'Overflow 蒙层';
 
-  const nodeStyles = getComputedStyle(node);
+  const nodeStyles = getComputedStyle(node, null);
   rect.cornerRadius = {
     topLeft: Style.parseBorderRadius(nodeStyles.borderTopLeftRadius, width, height),
     topRight: Style.parseBorderRadius(nodeStyles.borderTopRightRadius, width, height),

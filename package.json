@@ -7,7 +7,7 @@
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
 
     "test": "vitest  test/__tests__/parser",
-    "test3": "vitest  test/__tests__/parser/image.spec.ts",
+    "test1": "vitest  test/__tests__/parser/shape.spec.ts",
 
     "test0": "vitest",
     "ui": "vitest --ui",

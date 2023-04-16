@@ -63,7 +63,7 @@ const nodeToGroup = async (
 
   // Now build a group for all these children
 
-  const styles = getComputedStyle(node);
+  const styles = getComputedStyle(node, null);
   const { opacity } = styles;
 
   const group = new Group({ x: left, y: top, width, height });

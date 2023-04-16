@@ -26,7 +26,7 @@ export const parsePseudoToShape = async (
   if (pseudoEl.position === 'absolute') {
     x += parseFloat(pseudoEl.left);
     y += parseFloat(pseudoEl.top);
-    const { borderTopWidth, borderLeftWidth } = getComputedStyle(node);
+    const { borderTopWidth, borderLeftWidth } = getComputedStyle(node, null);
     x += parseFloat(borderLeftWidth);
     y += parseFloat(borderTopWidth);
   }

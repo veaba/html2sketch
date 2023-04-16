@@ -31,7 +31,7 @@ import {
  */
 const nodeToLayers = async (node: Element): Promise<AnyLayer[]> => {
   const layers: any[] = [];
-  const styles: CSSStyleDeclaration = getComputedStyle(node);
+  const styles: CSSStyleDeclaration = getComputedStyle(node, null);
 
   // ---------- 处理节点 ---------- //
 

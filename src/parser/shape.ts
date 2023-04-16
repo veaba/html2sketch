@@ -40,7 +40,12 @@ export const parseToShape = async (
 
   const style = new Style();
   if (!styles) {
-    styles = getComputedStyle(node);
+    /**
+     * https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
+     * 对原 repo 进行设定第二个参数，原因如果没有这个 null，vitest 跑的时候不太稳定，此处是为了确保首次正确
+     * 比如 是 0.666667 实际处理可能是 0.666667 | 1
+    */
+    styles = getComputedStyle(node, null);
   }
 
   const { overflow } = styles;
@@ -62,9 +67,9 @@ export const parseToShape = async (
   // 解析阴影
   const { boxShadow, borderWidth } = styles;
   if (boxShadow !== defaultNodeStyle.boxShadow) {
+
     // 拿到阴影样式
     const shadowStrings = Shadow.splitShadowString(boxShadow);
-
     shadowStrings.forEach((shadowString: string) => {
       const shadowObject = Shadow.shadowStringToObject(shadowString);
 
@@ -122,6 +127,8 @@ export const parseToShape = async (
   } else {
     // 使用内阴影来模拟单边描边
     const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth } = styles;
+
+    console.log(' 使用内阴影来模拟单边描边style=>', borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth)
     // 顶部描边
     const borderTopWidthFloat = parseFloat(borderTopWidth);
     if (borderTopWidthFloat !== 0) {
@@ -157,6 +164,8 @@ export const parseToShape = async (
         offsetX: borderLeftWidthFloat,
       });
     }
+
+    console.log(' 使用内阴影来模拟单边描边 转换=>', borderTopWidthFloat, borderRightWidthFloat, borderBottomWidthFloat, borderLeftWidthFloat)
   }
 
   rect.style = style;

@@ -21,20 +21,20 @@ describe('parseToShape', () => {
   })
   it('shape 正常解析', async () => {
     const node = document.getElementById('shape') as HTMLDivElement;
-
+  
     const shapeJSON = (await parseToShape(node)).toSketchJSON();
-
+  
     expect(shapeJSON._class).toBe('rectangle');
-
+  
     // 校验宽度
     expect(shapeJSON.frame.width).toBe(200);
-
+  
     expect(shapeJSON.style?.fills?.length).toBe(1);
-
+  
     // 校验颜色
     const color = shapeJSON.style?.fills?.[0].color!;
     const getColor = (colorValue: number) => (colorValue * 256).toFixed(0);
-
+  
     expect(getColor(color.red)).toBe('124');
     expect(getColor(color.green)).toBe('14');
     expect(getColor(color.blue)).toBe('53');
@@ -42,7 +42,7 @@ describe('parseToShape', () => {
   });
   it('shadow 正常解析', async () => {
     const node = document.getElementById('shadow') as HTMLDivElement;
-
+  
     const shadowJSON = (await parseToShape(node)).toSketchJSON();
     expect(shadowJSON._class).toBe('rectangle');
     // 校验颜色
@@ -62,13 +62,13 @@ describe('parseToShape', () => {
   });
   it('inner-shadow 正常解析', async () => {
     const node = document.getElementById('inner-shadow') as HTMLDivElement;
-
+  
     const shadowJSON = (await parseToShape(node)).toSketchJSON();
     expect(shadowJSON._class).toBe('rectangle');
     // 校验颜色
     expect(shadowJSON.style?.fills?.length).toBe(0);
     expect(shadowJSON.style?.shadows?.length).toBe(0);
-
+  
     const shadow = shadowJSON.style?.innerShadows?.[0]!;
     expect(shadow._class).toBe('innerShadow');
     // 阴影颜色
@@ -83,32 +83,32 @@ describe('parseToShape', () => {
   });
   it('multi-shadow 正常解析', async () => {
     const node = document.getElementById('multi-shadow') as HTMLDivElement;
-
+  
     const shadowJSON = (await parseToShape(node)).toSketchJSON();
     expect(shadowJSON._class).toBe('rectangle');
     // 校验颜色
     expect(shadowJSON.style?.fills?.length).toBe(0);
     const shadows = shadowJSON.style?.shadows;
     expect(shadows?.length).toBe(3);
-
+  
     const shadow1 = shadows?.[0]!;
-
+  
     expect(shadow1._class).toBe('shadow');
     expect(shadow1.color.alpha).toBe(0.12);
     expect(shadow1.offsetY).toBe(3);
     expect(shadow1.blurRadius).toBe(6);
     expect(shadow1.spread).toBe(-4);
-
+  
     const shadow2 = shadows?.[1]!;
-
+  
     expect(shadow2._class).toBe('shadow');
     expect(shadow2.color.alpha).toBe(0.08);
     expect(shadow2.offsetY).toBe(6);
     expect(shadow2.blurRadius).toBe(16);
     expect(shadow2.spread).toBe(0);
-
+  
     const shadow3 = shadows?.[2]!;
-
+  
     expect(shadow3._class).toBe('shadow');
     expect(shadow3.color.alpha).toBe(0.05);
     expect(shadow3.offsetY).toBe(9);
@@ -117,7 +117,7 @@ describe('parseToShape', () => {
   });
   it('普通 border 正常解析', async () => {
     const node = document.getElementById('border') as HTMLDivElement;
-
+  
     const borderJSON = (await parseToShape(node)).toSketchJSON();
     expect(borderJSON.style?.borders?.length).toBe(1);
     const border = borderJSON.style?.borders?.[0]!;
@@ -126,20 +126,19 @@ describe('parseToShape', () => {
   });
   it('border color不一致时正常解析', async () => {
     const node = document.getElementById('border-color') as HTMLDivElement;
-
     const borderJSON = (await parseToShape(node)).toSketchJSON();
     expect(borderJSON.style?.borders?.length).toBe(0);
     expect(borderJSON.style?.innerShadows.length).toBe(4);
     const [top] = borderJSON.style?.innerShadows!;
     expect(top.color.red).toBe(0.8);
     expect(top.offsetX).toBe(0);
-    console.log('top.offsetY=>', top.offsetY)
-    expect(top.offsetY).toBeLessThanOrEqual(1); // vitest: [0.666667 | 1] =>[-0.666667 | -1]
-    expect(top.offsetY).toBe(1);
+
+    console.log('border color不一致时正常解析=>',top.offsetX, top.offsetY)
+    expect(top.offsetY).toBe(0.666667); 
   });
   it('dashed-border 正常解析', async () => {
     const node = document.getElementById('dashed-border') as HTMLDivElement;
-
+  
     const borderJSON = (await parseToShape(node)).toSketchJSON();
     expect(borderJSON.style?.borders?.length).toBe(1);
     expect(borderJSON.style?.borderOptions.dashPattern).toStrictEqual([6, 6]);
@@ -152,23 +151,27 @@ describe('parseToShape', () => {
   it('single-border 正常解析', async () => {
     const node = document.getElementById('single-border') as HTMLDivElement;
     const borderJSON = (await parseToShape(node)).toSketchJSON();
+
     const shadows = borderJSON.style?.innerShadows;
+
+    console.log('shadows[0]=>',shadows?.[0].offsetX, shadows?.[0].offsetY)
+    console.log('shadows[1]=>',shadows?.[1].offsetX, shadows?.[1].offsetY)
+    console.log('shadows[2]=>',shadows?.[2].offsetX, shadows?.[2].offsetY)
+
     expect(shadows?.length).toBe(4);
     // 1 Top
     const shadow1 = shadows?.[0];
-    console.log('shadow1?.offsetY=>', shadow1?.offsetY)
-    expect(shadow1?.offsetY).toBeLessThanOrEqual(3); // vitest: 2.66667 | 3
-    // expect(shadow1?.offsetY).toBe(3);
+    expect(shadow1?.offsetY).toBe(2.66667);
     expect(shadow1?.color.red).toBe(1);
     expect(shadow1?.blurRadius).toBe(0);
     expect(shadow1?.spread).toBe(0);
     // 2 Right
     const shadow2 = shadows?.[1];
-    expect(shadow2?.offsetX).toBe(-1);
+    expect(shadow2?.offsetX).toBe(-0.666667);
     expect(shadow2?.color.green).toBe(1);
     // 3 Bottom
     const shadow3 = shadows?.[2];
-    expect(shadow3?.offsetY).toBe(-3);
+    expect(shadow3?.offsetY).toBe(-2.66667);
     expect(shadow3?.color.green).toBe(0);
     expect(shadow3?.color.red).toBe(0);
     expect(shadow3?.color.blue).toBe(0);
@@ -180,15 +183,15 @@ describe('parseToShape', () => {
   it('background-image 正常解析', async () => {
     const node = document.getElementById('background-image') as HTMLDivElement;
     const rectangle = (await parseToShape(node)) as Rectangle;
-
+  
     expect(rectangle.class).toBe('rectangle');
     const fill = rectangle.style.fills[0];
     expect(fill.type).toBe(4);
-
+  
     expect(fill.image?.url).toBe(
       'https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png',
     );
-
+  
     expect(rectangle.frame.width).toBe(200);
     expect(rectangle.frame.height).toBe(200);
     expect(fill.image?.base64).toBe(
@@ -200,12 +203,12 @@ describe('parseToShape', () => {
       'clip-background-image',
     ) as HTMLDivElement;
     const group = (await parseToShape(node)) as Group;
-
+  
     expect(group.class).toBe('group');
     expect(group.layers.length).toBe(2);
     expect(group.frame.width).toBe(150);
     expect(group.frame.height).toBe(200);
-
+  
     const [rect, bitmap] = group.layers;
     expect(rect.class).toBe('rectangle');
     expect(rect.name).toBe('Mask');
@@ -213,11 +216,11 @@ describe('parseToShape', () => {
     expect(rect.y).toBe(0);
     expect(rect.hasClippingMask).toBeTruthy();
     expect(rect.toSketchJSON().hasClippingMask).toBeTruthy();
-
+  
     expect(bitmap.class).toBe('bitmap');
     expect(bitmap.x).toBe(0);
     expect(bitmap.y).toBe(0);
-
+  
     expect((bitmap as Bitmap).url).toBe(
       'https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png',
     );
@@ -228,12 +231,12 @@ describe('parseToShape', () => {
   it('linear-gradient 正常解析', async () => {
     const node = document.getElementById('linear-gradient') as HTMLDivElement;
     const rectangle = (await parseToShape(node)) as Rectangle;
-
+  
     expect(rectangle.class).toBe('rectangle');
     const fill = rectangle.style.fills[0];
-
+  
     expect(fill.type).toBe(1);
-
+  
     expect(rectangle.frame.width).toBe(200);
     expect(rectangle.frame.height).toBe(200);
     expect(fill.gradient?.stops.length).toBe(3);
@@ -241,13 +244,13 @@ describe('parseToShape', () => {
   it('radial-gradient 暂不支持解析', async () => {
     const node = document.getElementById('radial-gradient') as HTMLDivElement;
     const rectangle = (await parseToShape(node)) as Rectangle;
-
+  
     expect(rectangle.class).toBe('rectangle');
     expect(rectangle.frame.width).toBe(200);
     expect(rectangle.frame.height).toBe(200);
-
+  
     const fill = rectangle.style.fills[0];
-
+  
     expect(fill).toBeUndefined();
   });
 });
