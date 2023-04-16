@@ -19,7 +19,8 @@ abstract class BaseLayer {
     this.class = type;
     this.style = new Style();
 
-    this.setResizingConstraint(ResizingConstraint.None);
+    // 默认锁定左边和顶部
+    this.setResizingConstraint(ResizingConstraint.Left, ResizingConstraint.Top);
 
     this.frame = new Frame(params);
 
@@ -57,6 +58,7 @@ abstract class BaseLayer {
   name: string;
 
   resizingConstraint: ResizingConstraint = ResizingConstraint.None;
+  resizingConstraints: ResizingConstraint[] = [];
 
   /**
    * 上锁状态
@@ -190,6 +192,22 @@ abstract class BaseLayer {
    */
   setResizingConstraint(...constraints: ResizingConstraint[]) {
     this.resizingConstraint = calcResizingConstraint(...constraints);
+  }
+  /**
+ * 添加调整尺寸的相关参数
+ * @param constraints
+ */
+  addResizingConstraints(...constraints: ResizingConstraint[]) {
+    // 判断一下是否包含新变量， 如果不包含则加入数组
+    constraints.forEach((c) => {
+      if (!this.resizingConstraints.includes(c)) {
+        this.resizingConstraints.push(c);
+      }
+    });
+
+    this.resizingConstraint = calcResizingConstraint(
+      ...this.resizingConstraints,
+    );
   }
 
   // scope defines which Sketch plugin will have access to provided data via Settings.setLayerSettingForKey

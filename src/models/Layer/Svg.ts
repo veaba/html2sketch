@@ -1,17 +1,13 @@
 import { Svgson } from '../../parser';
 
 import BaseLayer from '../Base/BaseLayer';
-import Gradient from '../Style/Gradient';
+import type Gradient from '../Style/Gradient';
 
-import { defaultExportOptions } from '../utils';
 import { getGroupLayout } from '../../utils/layout';
+import { defaultExportOptions } from '../utils';
 
-import {
-  SketchFormat,
-  AnyLayer,
-  BaseLayerParams,
-  SvgDefsStyle,
-} from '../../types';
+import type { AnyLayer, BaseLayerParams, SvgDefsStyle } from '../../types';
+import { SketchFormat } from '../../types';
 
 interface SvgInitParams extends Partial<BaseLayerParams> {
   svgString: string;
@@ -35,6 +31,9 @@ class Svg extends BaseLayer {
     const svgShape = new Svgson(svgString, { width, height });
 
     this.layers = svgShape.layers;
+
+    // 默认锁定长宽
+    this.setFixedWidthAndHeight();
   }
 
   /**
@@ -64,11 +63,11 @@ class Svg extends BaseLayer {
       _class: 'group',
       do_objectID: this.id,
       booleanOperation: SketchFormat.BooleanOperation.None,
+      isTemplate: false,
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
       isVisible: true,
-      isTemplate: false,
       isLocked: this.locked,
       layerListExpandedType: 0,
       name: this.name,

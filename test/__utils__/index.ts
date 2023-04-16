@@ -74,7 +74,7 @@ export const setupTestNode = (innerHTML: string, id: string) => {
 };
 
 export  const removeTestNode = (id : string) => {
-  document.getElementById(id).innerHTML = ''
+  document.body.removeChild(document.getElementById(id));
 }
 
 /**

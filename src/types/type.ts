@@ -60,4 +60,4 @@ export type LayerClassType =
   | 'triangle'
   | 'svg';
 
-declare module '*.svg'
+// declare module '*.svg'

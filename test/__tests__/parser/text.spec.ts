@@ -6,7 +6,6 @@
  * - __dirname 会丢失
  * */
 import { Group, parseToGroup, parseToText, Text } from '@html2sketch';
-import { beforeAll, afterAll, describe, expect, it } from 'vitest';
 import { removeTestNode, setupTestNode, vitestUrlResolve } from '@test-utils';
 // import { resolve } from 'pathe';
 
@@ -24,7 +23,6 @@ describe('parseToText', () => {
 
     const text = parseToText(node) as Text;
     expect(text).toBeTruthy();
-
     expect(text.toSketchJSON().attributedString.string).toBe('123');
   });
   it('空文本不解析', () => {
