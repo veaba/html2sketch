@@ -19,6 +19,13 @@ export { default as antdJSON } from './json/antd.json';
 export { default as basicParserJSON } from './json/parser/basic.json';
 export { default as pseudoTextJSON } from './json/pseudo-text.json';
 
+/** export svg string */
+export {default as antdRawSvg } from './svg/antdRaw.svg?raw';
+export {default as illustrationSvg} from './svg/illustration.svg?raw';
+export {default as antdOptSvg} from './svg/antdOpt.svg?raw'
+export {default as bgRawSvg } from './svg/bgRaw.svg?raw'
+export {default as bgOptSvg } from './svg/bgOpt.svg?raw'
+
 
 export * from './testSvgData';
 
@@ -47,34 +54,32 @@ export const outputJSONData = (
   );
 };
 
-export const illustrationSvg = await import('./svg/illustration.svg');
-export const antdRawSvg = await import('./svg/antdRaw.svg');
-
-export const antdOptSvg = await import('./svg/antdOpt.svg');
-
-export const bgRawSvg = await import('./svg/bgRaw.svg');
-
-export const bgOptSvg = await import('./svg/bgOpt.svg');
-
 /**
  * 更新
  */
 export const isUpdate = process.env.UPDATE === '1';
 
 /**
- * 初始化测试节点
+ * 初始化测试节点（配合 removeTestNode 方法使用）
  * @param innerHTML
  * @param id
  */
-export const setupTestNode = (innerHTML: string, id: string) => {
+export const setupTestNode = (innerHTML: string) => {
   const node = document.createElement('div');
-  node.id = id
+  const child = document.createElement('div')
+  child.innerHTML = innerHTML
+  node.id = '__vitestDiv'
+  node.appendChild(child)
   node.innerHTML = innerHTML;
   document.body.prepend(node);
 };
 
-export  const removeTestNode = (id : string) => {
-  document.body.removeChild(document.getElementById(id));
+/**
+ * 如果使用了 setupTestNode 方法插入 html 内容
+ * 请务必使用 removeTestNode 放到移除 node
+*/
+export  const removeTestNode = () => {
+  document.body.removeChild(document.getElementById('__vitestDiv') as HTMLElement );
 }
 
 /**

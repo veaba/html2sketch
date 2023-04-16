@@ -1,3 +1,5 @@
+> 由于[antd/html2sketch](https://github.com/antd/html2sketch) 使用 jsdom 做 ui 测试版本过老，导致更换 vitest 做真实 ui 测试 `canvas.toDataURL()` 生成的 base64 是稍微有区别的
+
 <img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> English | [简体中文](./README.zh-CN.md)
 
 <p align="center">

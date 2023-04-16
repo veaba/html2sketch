@@ -11,7 +11,7 @@ export const getBase64ImageString = (url: string): string | undefined => {
   const group = reg.exec(url);
 
   if (!group) {
-    return;
+    return
   }
   return group[1];
 };
@@ -42,7 +42,7 @@ export const base64ToSvgString = (url: string): string | undefined => {
 export const getImageBase64URL = (
   img: HTMLImageElement,
   format: string = 'png',
-): string => {
+) => {
   // 1. 创建canvas DOM元素，并设置其宽高和图片一样
   let canvas: HTMLCanvasElement | null = document.createElement('canvas');
 
@@ -51,11 +51,12 @@ export const getImageBase64URL = (
 
   // 2. 使用画布画图
   const ctx = canvas.getContext('2d');
+
   ctx?.drawImage(img, 0, 0, img.width, img.height);
 
   // 3. 返回的是一串Base64编码的URL并指定格式
   const dataURL = canvas.toDataURL(`image/${format}`);
-  console.log('dataURL=>', dataURL)
+  console.log('dataURL toDataURL=>', dataURL.length, dataURL.slice(-50))
   canvas = null; // 释放
   return dataURL;
 };
@@ -123,19 +124,10 @@ export const initImageURL = (inputURL: string) => {
   const url = inputURL.startsWith('data:') ? correctURL : inputURL;
   // 如果 url 是 base64 的内联样式
   let base64;
-  console.info('inputURL=>',inputURL);
-  console.info('correctURL=>',correctURL);
-  // 如果是 base64 图片
   if (correctURL.startsWith('data:')) {
     base64 = getBase64ImageString(correctURL)!;
-    console.info('11=>',base64);
   } else {
-    // @TODO 否则非 base64 类则变为 错误的图片
-    // @TODO 但是这里无法解析 url svg 图片
-    // @TODO 如 https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg
     base64 = getBase64ImageString(errorBase64Url)!;
-
-    console.info('22=>',base64);
   }
   return { url, base64 };
 };

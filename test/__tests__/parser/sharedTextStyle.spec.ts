@@ -1,16 +1,20 @@
 import { parseToSharedTextStyle } from '@html2sketch';
-import { describe, expect, it, beforeAll  } from 'vitest'
+import { removeTestNode, setupTestNode } from '@test-utils';
 
 describe('parseToSharedTextStyle', () => {
   beforeAll(() => {
-    document.body.innerHTML = `
+    setupTestNode(`
 <div>
     <div id="default" style="background: aliceblue">
     aaa
     </div>
 </div>
-`;
+`)
   });
+  afterAll(() => {
+    removeTestNode();
+  });
+
   it('default 正常解析', async () => {
     const node = document.getElementById('default') as HTMLDivElement;
     const layers = await parseToSharedTextStyle(node);

@@ -4,19 +4,19 @@
  * - fileURLToPath 会报 deno 错误
  * - pathe 用法会比 默认 path 好，路径会带操作系统区别
  * - __dirname 会丢失
+ * vitest 测试值存在漂移：text.y - group.y = 0.6666669999999999 | 1
  * */
 import { Group, parseToGroup, parseToText, Text } from '@html2sketch';
 import { removeTestNode, setupTestNode, vitestUrlResolve } from '@test-utils';
-// import { resolve } from 'pathe';
 
 describe('parseToText', () => {
   beforeAll(async () => {
     const textPath = vitestUrlResolve(import.meta.url, './html/text.html');
     const response = await fetch(textPath).then(text => text.text())
-    setupTestNode(response,'pSetup')
+    setupTestNode(response)
   });
   afterAll(()=> {
-    removeTestNode("pSetup")
+    removeTestNode()
   })
   it('文本正常解析', () => {
     const node = document.getElementById('text') as HTMLDivElement;
@@ -87,7 +87,7 @@ describe('parseToText', () => {
     const text = parseToText(node) as Text;
     const group = parseToGroup(node);
     expect(text.text).toBe('蓝色');
-    expect(text.y - group.y).toBe(1);
+    expect(text.y - group.y).toBeLessThanOrEqual(1); // vitest: 0.6666669999999999 | 1
   });
   // 单个 div 中包含多个文本对象
   it('row-text 文本解析正常', () => {

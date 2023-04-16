@@ -5,10 +5,11 @@
     "docs": "vite",
     "dev": "dev",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "test": "vitest  test/__tests__/parser/svg.spec.ts",
-    "test3": "vitest  test/__tests__/parser",
-    "test2": "vitest  test/__tests__/parser/text.spec.ts",
-    "test1": "vitest",
+
+    "test": "vitest  test/__tests__/parser",
+    "test3": "vitest  test/__tests__/parser/image.spec.ts",
+
+    "test0": "vitest",
     "ui": "vitest --ui",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./test"
   },
