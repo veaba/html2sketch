@@ -60,13 +60,13 @@ class ShapePath extends BaseLayer {
     return {
       _class: 'shapePath',
       booleanOperation: this.booleanOperation,
+      isTemplate: false,
       do_objectID: this.id,
       rotation: this.rotation,
       isVisible: true,
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
-      isTemplate: false,
       layerListExpandedType: 0,
       nameIsFixed: false,
       resizingType: 0,
@@ -81,6 +81,7 @@ class ShapePath extends BaseLayer {
       edited: true,
       isClosed: this.isClosed,
       points: this.points.map(this.bezierPointToSketchPoint).filter((p) => p),
+      hasClippingMask: this.hasClippingMask,
       /**
        * 默认使用圆角
        */
@@ -151,6 +152,7 @@ class ShapePath extends BaseLayer {
       hasCurveFrom,
       hasCurveTo,
       point: `{${point.x}, ${point.y}}`,
+      cornerStyle: SketchFormat.CornerStyle.Rounded,
     };
   };
 

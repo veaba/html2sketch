@@ -1,14 +1,9 @@
-import { uuid } from '../../utils/utils';
-import Frame from './Frame';
-import Style from '../Style/Style';
+import type { AnyLayer, BaseLayerParams, LayerClassType } from '../../types';
+import { ResizingConstraint, SketchFormat } from '../../types';
 import { calcResizingConstraint } from '../../utils/layout';
-import {
-  AnyLayer,
-  LayerClassType,
-  BaseLayerParams,
-  SketchFormat,
-  ResizingConstraint,
-} from '../../types';
+import { uuid } from '../../utils/utils';
+import Style from '../Style/Style';
+import Frame from './Frame';
 
 const DEFAULT_USER_INFO_SCOPE = 'html2sketch';
 
@@ -179,8 +174,21 @@ abstract class BaseLayer {
     this.frame.rotation = deg;
   }
 
+  /**
+   * 将 resize 设为固定宽高
+   */
   setFixedWidthAndHeight() {
     this.setResizingConstraint(
+      ResizingConstraint.Width,
+      ResizingConstraint.Height,
+    );
+  }
+
+  /**
+   *  resize 添加固定宽高
+   */
+  addFixedWidthAndHeight() {
+    this.addResizingConstraints(
       ResizingConstraint.Width,
       ResizingConstraint.Height,
     );
@@ -191,12 +199,14 @@ abstract class BaseLayer {
    * @param constraints
    */
   setResizingConstraint(...constraints: ResizingConstraint[]) {
+    this.resizingConstraints = constraints;
     this.resizingConstraint = calcResizingConstraint(...constraints);
   }
+
   /**
- * 添加调整尺寸的相关参数
- * @param constraints
- */
+   * 添加调整尺寸的相关参数
+   * @param constraints
+   */
   addResizingConstraints(...constraints: ResizingConstraint[]) {
     // 判断一下是否包含新变量， 如果不包含则加入数组
     constraints.forEach((c) => {
