@@ -2,9 +2,10 @@ import { parseToSvg } from '@html2sketch';
 import {
   antdParserJSON,
   isUpdate,
+  upCircleParserJSON,
   outputJSONData,
   setupTestNode,
-  upCircleParserJSON, removeTestNode,
+  removeTestNode,
 } from '@test-utils';
 
 describe('parseToSvg', () => {
