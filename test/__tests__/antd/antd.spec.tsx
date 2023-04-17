@@ -31,12 +31,13 @@ describe('antd 组件库可正常解析', () => {
 
     const groupData = (await nodeToGroup(node))
 
-    console.log('groupData node=>', node)
-    console.log('groupData=>', groupData)
+    console.log('要解析的 node=>', node)
+    console.log('解析后的 groupData=>', groupData)
     
     const group = groupData?.toSketchJSON()!;
 
-    console.log('group=>',group)
+    console.log('isUpdate=>',isUpdate)
+    console.log('group 转 json =>',group)
 
     if (isUpdate) {
       saveJSONData(group, 'radio');
@@ -44,8 +45,8 @@ describe('antd 组件库可正常解析', () => {
     const { frame, ...target } = group;
     const { frame: originFrame, ...origin } = radioJSON;
 
-    console.log('target=>', JSON.stringify(target).length) // 1072
-    console.log('origin=>', JSON.stringify(origin).length) // 13313
+    console.log('target=>', JSON.stringify(target).length, target.layers.length) // 1072，为什么是 0
+    console.log('origin=>', JSON.stringify(origin).length, origin.layers.length) // 13313，为什么是 2
     console.log('')
     /** @todo frame.width 如果是手动的会变*/
     console.log('frame.width=>', frame.width)

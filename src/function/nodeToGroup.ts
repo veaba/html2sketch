@@ -109,7 +109,7 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
   console.info('解析group.layers=>', group.layers)
   /**
    * @todo 不应该丢失吧==
-   * 舍弃 <div></div>
+   * 舍弃类似 <div></div>
   */
   if (
     group.layers.length === 0 &&
@@ -119,11 +119,10 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
     console.groupCollapsed('%c清理无效层级', consoleGroupStyle);
     console.log('该 group 是空的,丢弃...');
     console.groupEnd();
-    console.info('return 22=>', '')
     // @ts-ignore
     // eslint-disable-next-line consistent-return
     // @todo 为什么是 return？？
-    // return
+    // return group
   }
 
   if (options && options.getGroupName) {
