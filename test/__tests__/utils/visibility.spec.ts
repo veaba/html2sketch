@@ -1,10 +1,10 @@
 import { isNodeVisible, isTextVisible } from '@html2sketch/utils/visibility';
-import { describe, expect, it, beforeAll  } from 'vitest'
+import { setupTestNode, removeTestNode } from '@test-utils';
 
 describe('isNodeVisible', () => {
   describe('正确识别可见节点', () => {
     beforeAll(() => {
-      document.body.innerHTML = `
+      const innerHTML = `
 <p class='check-me'>text</p>
 <div style='position: absolute'>
 <p class='check-me' />
@@ -12,7 +12,9 @@ describe('isNodeVisible', () => {
 <div class='check-me' style='width: 0'>text</div>
 <div class='check-me' style='opacity: 0.1'>text</div>
       `;
+      setupTestNode(innerHTML)
     });
+    afterAll(() => removeTestNode())
     it('正确识别可见节点', () => {
       const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
       const invisibleNodes = nodesToCheck.filter((n) => !isNodeVisible(n));
@@ -23,7 +25,7 @@ describe('isNodeVisible', () => {
 
   describe('正确识别不可见节点', () => {
     beforeAll(() => {
-      document.head.innerHTML = `
+      const innerHTML = `
 <style>
   .one {
     display: none;
@@ -47,8 +49,6 @@ describe('isNodeVisible', () => {
     visibility: collapse
   }
 </style>
-`;
-      document.body.innerHTML = `
 <p class='one check-me'>text</p>
 <div class='two check-me'>text</div>
 <div class='three check-me'>text</div>
@@ -57,7 +57,10 @@ describe('isNodeVisible', () => {
 <div class='six check-me'></div>
 <div class='remove-me check-me'></div>
 `;
+
+    setupTestNode(innerHTML)
     });
+    afterAll(() => removeTestNode())
     it('正确识别不可见节点', () => {
       const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
       // detach node .remove-me
@@ -71,19 +74,18 @@ describe('isNodeVisible', () => {
 
 describe('isTextVisible', () => {
   beforeAll(() => {
-    document.head.innerHTML = `
+    const innerHTML = `
 <style>
 .one {
   overflow: hidden;
   text-indent: -99999px;
 }
 </style>
-`;
-    document.body.innerHTML = `
 <p class='one check-me'>text</p>
 `;
+  setupTestNode(innerHTML)
   });
-
+  afterAll(() => removeTestNode())
   it('正确识别不可见文本', () => {
     const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
     const visibleText = nodesToCheck.filter((n) =>

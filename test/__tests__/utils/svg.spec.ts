@@ -2,15 +2,14 @@ import {
   optimizeRawSVG,
   urlToRawSVG,
   nodeToRawSVG,
-  // rawStrToRenderStr,
 } from '@html2sketch/utils/svg';
-import { describe, expect, it, beforeAll  } from 'vitest'
 import {
   bgOptSvg,
   bgRawSvg,
   antdOptSvg,
   antdRawSvg,
   setupTestNode,
+  removeTestNode,
 } from '@test-utils';
 
 describe('optimizeSvgString', () => {
@@ -86,10 +85,11 @@ describe('nodeToOptSVG', () => {
     setupTestNode(innerHTML);
   });
 
+  afterAll(()=> removeTestNode())
   it('antd 节点正常解析', async () => {
     const node = (document.getElementById('antd') as unknown) as SVGElement;
     expect(await optimizeRawSVG(nodeToRawSVG(node))).toBe(antdOptSvg.trim());
   });
 });
 
-describe('rawStrToRenderStr', () => {});
+describe.skip('rawStrToRenderStr', () => {});
