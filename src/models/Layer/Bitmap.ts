@@ -21,6 +21,7 @@ class Bitmap extends BaseLayer {
       throw Error('没有传入 URL 请检查参数');
     }
     const { url: safeURL, base64 } = initImageURL(url);
+    
     this.url = safeURL;
     this.base64 = base64;
   }

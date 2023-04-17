@@ -11,6 +11,7 @@ import {
   setupTestNode,
   removeTestNode,
 } from '@test-utils';
+import { describe } from 'vitest'
 
 describe('optimizeSvgString', () => {
   it('antd logo 解析', async () => {

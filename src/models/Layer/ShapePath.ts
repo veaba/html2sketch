@@ -1,16 +1,10 @@
 import { SVGPathData } from 'svg-pathdata';
-import { CommandC, CommandL, SVGCommand } from 'svg-pathdata/lib/types';
+import type { CommandC, CommandL, SVGCommand } from 'svg-pathdata/lib/types';
 import BaseLayer from '../Base/BaseLayer';
 import { defaultExportOptions } from '../utils';
 
-import {
-  CGPoint,
-  ShapePathType,
-  BezierPoint,
-  StartPoint,
-  BaseLayerParams,
-  SketchFormat,
-} from '../../types';
+import type { CGPoint, ShapePathType, BezierPoint, StartPoint, BaseLayerParams } from '../../types';
+import { SketchFormat } from '../../types'
 
 interface ContextPoints {
   thisPoint: BezierPoint;
@@ -145,7 +139,6 @@ class ShapePath extends BaseLayer {
     return {
       _class: 'curvePoint',
       cornerRadius: 0,
-      cornerStyle: 0,
       curveFrom: `{${curveFromPoint.x}, ${curveFromPoint.y}}`,
       curveMode,
       curveTo: `{${curveToPoint.x}, ${curveToPoint.y}}`,
@@ -270,8 +263,7 @@ class ShapePath extends BaseLayer {
 
     // 判断是否闭合
     const isClose =
-      svgPathData.commands.findIndex((i) => i.type === SVGPathData.CLOSE_PATH) >
-      -1;
+      svgPathData.commands.findIndex((i) => i.type === SVGPathData.CLOSE_PATH) > -1;
 
     const shapePath = svgPathData
       .translate(-minX, -minY)
@@ -294,8 +286,7 @@ class ShapePath extends BaseLayer {
         return true;
       })
       .map((i) => {
-        // @ts-ignore
-        const { relative, ...res } = i;
+        const { relative: _, ...res } = i;
 
         return res as BezierPoint;
       });

@@ -1,22 +1,18 @@
 import { Bitmap, nodeToLayers, Rectangle, SketchFormat } from '@html2sketch';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { setupTestNode } from '@test-utils';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
+import { vitestUrlResolve, setupTestNode, removeTestNode } from '@test-utils';
+import { expect } from 'vitest'
 
 describe('nodeToLayers', () => {
-  beforeAll(() => {
-    const innerHTML = readFileSync(
-      resolve(__dirname, './html/nodeToLayers.html'),
-      'utf-8',
-    );
+  beforeAll(async () => {
+    const textPath = vitestUrlResolve(import.meta.url, './html/nodeToLayers.html');
+    const innerHTML = await fetch(textPath).then(text => text.text())
     setupTestNode(innerHTML);
   });
+  afterAll(() => removeTestNode())
 
   it('default 图层正常解析', async () => {
     const node = document.getElementById('default') as HTMLDivElement;
     const layers = await nodeToLayers(node);
-
     expect(layers.length).toBe(2);
     const rect = layers[0].toSketchJSON();
     expect(rect._class).toBe('rectangle');

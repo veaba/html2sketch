@@ -1,5 +1,6 @@
+import type { BaseLayerParams } from '../../types';
+import { SketchFormat } from '../../types';
 import BaseLayer from '../Base/BaseLayer';
-import { BaseLayerParams, SketchFormat } from '../../types';
 import { defaultExportOptions } from '../utils';
 
 interface EllipseParams extends BaseLayerParams {
@@ -99,10 +100,10 @@ class Ellipse extends BaseLayer {
       style: this.style.toSketchJSON(),
       edited: false,
       isVisible: true,
-      isTemplate: false,
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
+      isTemplate: false,
       layerListExpandedType: 0,
       nameIsFixed: false,
       resizingType: 0,
@@ -119,44 +120,44 @@ class Ellipse extends BaseLayer {
           cornerRadius: 0,
           curveFrom: '{0.77614237490000004, 1}',
           curveMode: 2,
-          cornerStyle: 0,
           curveTo: '{0.22385762510000001, 1}',
           hasCurveFrom: true,
           hasCurveTo: true,
           point: '{0.5, 1}',
+          cornerStyle: SketchFormat.CornerStyle.Rounded,
         },
         {
           _class: 'curvePoint',
           cornerRadius: 0,
           curveFrom: '{1, 0.22385762510000001}',
           curveMode: 2,
-          cornerStyle: 0,
           curveTo: '{1, 0.77614237490000004}',
           hasCurveFrom: true,
           hasCurveTo: true,
           point: '{1, 0.5}',
+          cornerStyle: SketchFormat.CornerStyle.Rounded,
         },
         {
           _class: 'curvePoint',
           cornerRadius: 0,
           curveFrom: '{0.22385762510000001, 0}',
           curveMode: 2,
-          cornerStyle: 0,
           curveTo: '{0.77614237490000004, 0}',
           hasCurveFrom: true,
           hasCurveTo: true,
           point: '{0.5, 0}',
+          cornerStyle: SketchFormat.CornerStyle.Rounded,
         },
         {
           _class: 'curvePoint',
           cornerRadius: 0,
           curveFrom: '{0, 0.77614237490000004}',
           curveMode: 2,
-          cornerStyle: 0,
           curveTo: '{0, 0.22385762510000001}',
           hasCurveFrom: true,
           hasCurveTo: true,
           point: '{0, 0.5}',
+          cornerStyle: SketchFormat.CornerStyle.Rounded,
         },
       ],
       pointRadiusBehaviour: 1,

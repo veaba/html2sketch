@@ -3,11 +3,12 @@
  * - import.meta.url = http://localhost:63315/@fs/**html2sketch/test/__tests__/parser/text.spec.ts?v=1681488458035
  * - fileURLToPath 会报 deno 错误
  * - pathe 用法会比 默认 path 好，路径会带操作系统区别
- * - __dirname 会丢失
+ * - __dirname 会丢失, 请使用 vitestUrlResolve(import.meta.url, './html/text.html'); 替代
  * vitest 测试值存在漂移：text.y - group.y = 0.6666669999999999 | 1
  * */
 import { Group, parseToGroup, parseToText, Text } from '@html2sketch';
 import { removeTestNode, setupTestNode, vitestUrlResolve } from '@test-utils';
+import { expect } from 'vitest';
 
 describe('parseToText', () => {
   beforeAll(async () => {

@@ -2,6 +2,8 @@
 /* istanbul ignore file */
 
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
+import ReactDOM from 'react-dom';
+import * as ReactDOMClient from 'react-dom/client';
 import { writeFileSync } from 'fs'; // readFileSync
 import { join, resolve } from 'path';
 
@@ -18,6 +20,8 @@ export { default as antdParserJSON } from './json/parser/antd.json';
 export { default as antdJSON } from './json/antd.json';
 export { default as basicParserJSON } from './json/parser/basic.json';
 export { default as pseudoTextJSON } from './json/pseudo-text.json';
+export { default as inlineImageJSON } from './json/inline-image.json';
+export { default as pngURLImageJSON } from './json/png-url-image.json';
 
 /** export svg string */
 export {default as antdRawSvg } from './svg/antdRaw.svg?raw';
@@ -78,8 +82,15 @@ export const setupTestNode = (innerHTML: string) => {
  * 如果使用了 setupTestNode 方法插入 html 内容
  * 请务必使用 removeTestNode 放到移除 node
 */
-export  const removeTestNode = () => {
+export const removeTestNode = () => {
   document.body.removeChild(document.getElementById('__vitestDiv') as HTMLElement );
+}
+
+/**
+ * 从 __vitestDiv 删除一些 node
+*/
+export const removeNodeByText = () => {
+  return document.getElementById('__vitestDiv') as HTMLElement 
 }
 
 /**
@@ -89,4 +100,19 @@ export const vitestUrlResolve = (url: string, filePath: string) => {
   const urlObj = new URL(url);
   const { origin, pathname } = urlObj;
   return origin + resolve(pathname,'../',filePath);
+};
+
+export const render = (App: JSX.Element) => {
+  const container = document.getElementById('container')
+  const root = ReactDOMClient.createRoot(container)
+  root.render(App);
+};
+
+export const setupTestEnv = () => {
+  // 3. 创建 dom 容器
+  const node = document.createElement('div');
+
+  node.id = 'container';
+
+  document.body.prepend(node);
 };

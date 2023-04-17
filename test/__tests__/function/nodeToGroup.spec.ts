@@ -1,17 +1,15 @@
 import { nodeToGroup } from '@html2sketch';
-import { setupTestNode } from '@test-utils';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
+import { vitestUrlResolve, setupTestNode, removeTestNode } from '@test-utils'
 import { describe, expect, it, beforeAll  } from 'vitest'
 
+
 describe('nodeToGroup', () => {
-  beforeAll(() => {
-    const innerHTML = readFileSync(
-      resolve(__dirname, './html/nodeToGroup.html'),
-      'utf-8',
-    );
+  beforeAll(async () => {
+    const textPath = vitestUrlResolve(import.meta.url,'./html/nodeToGroup.html')
+    const innerHTML = await fetch(textPath).then(text => text.text())
     setupTestNode(innerHTML);
   });
+  afterAll(() => removeTestNode())
   it('没有节点则报错', async () => {
     const node = document.getElementById('empty') as HTMLDivElement;
 

@@ -1,4 +1,5 @@
-import { BaseLayerParams, SketchFormat } from '../../types';
+import type { BaseLayerParams } from '../../types';
+import { SketchFormat } from '../../types';
 
 import BaseLayer from '../Base/BaseLayer';
 import { defaultExportOptions } from '../utils';
@@ -126,51 +127,50 @@ class Rectangle extends BaseLayer {
       bottomRight = cornerRadius.bottomRight;
       bottomLeft = cornerRadius.bottomLeft;
     }
-    // @TODO 补充了 cornerStyle: 0,
     return [
       {
         _class: 'curvePoint',
         cornerRadius: topLeft,
         curveFrom: '{0, 0}',
-        cornerStyle: 0,
         curveMode: 1,
         curveTo: '{0, 0}',
         hasCurveFrom: false,
         hasCurveTo: false,
         point: '{0, 0}',
+        cornerStyle: SketchFormat.CornerStyle.Rounded,
       },
       {
         _class: 'curvePoint',
         cornerRadius: topRight,
         curveFrom: '{1, 0}',
-        cornerStyle: 0,
         curveMode: 1,
         curveTo: '{1, 0}',
         hasCurveFrom: false,
         hasCurveTo: false,
         point: '{1, 0}',
+        cornerStyle: SketchFormat.CornerStyle.Rounded,
       },
       {
         _class: 'curvePoint',
         cornerRadius: bottomRight,
         curveFrom: '{1, 1}',
         curveMode: 1,
-        cornerStyle: 0,
         curveTo: '{1, 1}',
         hasCurveFrom: false,
         hasCurveTo: false,
         point: '{1, 1}',
+        cornerStyle: SketchFormat.CornerStyle.Rounded,
       },
       {
         _class: 'curvePoint',
         cornerRadius: bottomLeft,
         curveFrom: '{0, 1}',
         curveMode: 1,
-        cornerStyle: 0,
         curveTo: '{0, 1}',
         hasCurveFrom: false,
         hasCurveTo: false,
         point: '{0, 1}',
+        cornerStyle: SketchFormat.CornerStyle.Rounded,
       },
     ];
   };

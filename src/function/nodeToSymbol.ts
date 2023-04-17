@@ -1,14 +1,14 @@
-import { SymbolMaster } from '../models';
 import { defaultSymbolParamsList } from '../constraints/symbolParams';
-import nodeToGroup from './nodeToGroup';
-import adjustSymbolParams from './adjustSymbolParams';
-import { AnyLayer, NodeToSketchSymbolOptions } from '../types';
+import { SymbolMaster } from '../models';
+import type { AnyLayer, NodeToSymbolOptions } from '../types';
 import { checkNoNull } from '../utils/utils';
+import adjustSymbolParams from './adjustSymbolParams';
+import nodeToGroup from './nodeToGroup';
 
 /**
  * 解析为 Symbol
  */
-export default async (node: Element, options?: NodeToSketchSymbolOptions) => {
+export default async (node: Element, options?: NodeToSymbolOptions) => {
   if (!node) throw Error('解析对象不存在 请检查传入对象');
 
   const group = await nodeToGroup(node);

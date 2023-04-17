@@ -1,5 +1,5 @@
 import { isNodeVisible, isTextVisible } from '@html2sketch/utils/visibility';
-import { setupTestNode, removeTestNode } from '@test-utils';
+import { setupTestNode, removeTestNode, removeNodeByText } from '@test-utils';
 
 describe('isNodeVisible', () => {
   describe('正确识别可见节点', () => {
@@ -63,8 +63,10 @@ describe('isNodeVisible', () => {
     afterAll(() => removeTestNode())
     it('正确识别不可见节点', () => {
       const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
+
       // detach node .remove-me
-      document.body.removeChild(document.querySelector('.remove-me')!);
+      const removeMeNode = document.querySelector('.remove-me')!
+      removeNodeByText().removeChild(removeMeNode!);
 
       const visibleNodes = nodesToCheck.filter((n) => isNodeVisible(n));
       expect(visibleNodes).toEqual([]);

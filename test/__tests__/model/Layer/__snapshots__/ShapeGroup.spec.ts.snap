@@ -33,7 +33,7 @@ exports[`ShapeGroup > toSketchJSON > 生成正常 1`] = `
   "layers": [],
   "name": "shapeGroup",
   "nameIsFixed": false,
-  "resizingConstraint": 63,
+  "resizingConstraint": 27,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -79,6 +79,6 @@ exports[`ShapeGroup > 生成正常 1`] = `
   "layers": [],
   "locked": false,
   "name": "",
-  "resizingConstraint": 63,
+  "resizingConstraint": 27,
 }
 `;

@@ -1,4 +1,8 @@
 /**
+ * 此处的 buffer 是跑在 browser 的 
+*/
+import { Buffer } from 'buffer'
+/**
  * 判断是否是 Base64Image 字符串
  *
  * 如果是 则返回可以用的字符串
@@ -97,6 +101,9 @@ export const ensureBase64DataURL = (url: string) => {
     const type = imageData[1];
     const data = decodeURIComponent(imageData[4]);
     const encodingMatch = imageData[3] && imageData[3].match(/^charset=(.*)/);
+    /**
+     * @todo 是不是可以使用 ArrayBuffer 或 blob 替换
+    */
     let buffer: Buffer;
 
     if (encodingMatch) {
@@ -106,6 +113,7 @@ export const ensureBase64DataURL = (url: string) => {
       buffer = Buffer.from(data);
     }
 
+    console.log('buffer=>', typeof buffer,typeof data ,ArrayBuffer.isView(data) )
     return `data:${type};base64,${buffer.toString('base64')}`;
   }
 

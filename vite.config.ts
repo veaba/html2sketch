@@ -1,10 +1,17 @@
+/// <reference types="vitest" />
 /// <reference types="vite-svg-loader" />
+/// <reference types="vite/client" />
 
 import { defineConfig } from "vitest/config";
 import { resolve } from 'path'
+// import solid from 'vite-plugin-solid'
 import svgLoader from 'vite-svg-loader'
+import react from '@vitejs/plugin-react'
+
 export default defineConfig({
   plugins: [
+    react(),
+    // solid(),
     svgLoader()
   ],
   assetsInclude:['**/*.html'],
@@ -36,22 +43,8 @@ export default defineConfig({
       headless: false,
       provider: process.env.PROVIDER || 'webdriverio',
     },
-    // environment: "happy-dom",
-    // setupFiles: 'vitest.setup.ts',
-    // environmentMatchGlobs:[
-    //   ['test/__test__/__utils__/**','jsdom']
-    // ],
-    // include: ['test/__test__/**'],
-
-    // deps: {
-    //   inline: ['vitest-canvas-mock'],
-    // },
-    // For this config, check https://github.com/vitest-dev/vitest/issues/740
-    // threads: true,
-    // environmentOptions: {
-    //   jsdom: {
-    //     resources: 'usable',
-    //   },
-    // },
+    transformMode: {
+      web: [/.[jt]sx?/],
+    },
   }
 });
