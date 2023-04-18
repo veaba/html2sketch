@@ -22,7 +22,7 @@
     "paths": {
       "@html2sketch": ["src"],
       "@html2sketch/*": ["src/*"],
-      "@test-utils": ["./test/__utils__"],
+      "@test-utils": ["./tests/__utils__"],
       "@docs-utils": ["./docs/__utils__"],
       "@e2e-utils": ["./e2e/__utils__"]
     }
@@ -32,7 +32,7 @@
     "src/**/*.d.ts",
     "**/docs/",
     "**/e2e/",
-    "**/test/"
+    "**/tests/"
   ],
   "exclude": [
     "node_modules",

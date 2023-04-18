@@ -1,10 +1,8 @@
 import { Button, Modal, Radio, Tooltip } from 'antd';
-import React from 'react';
-
 import { PlusOutlined, UpCircleOutlined } from '@ant-design/icons';
 import type SketchFormat from '@sketch-hq/sketch-file-format-ts';
 import { isUpdate, render } from '@test-utils';
-import { nodeToGroup, nodeToSymbol } from 'html2sketch';
+import { nodeToGroup, nodeToSymbol } from '@html2sketch';
 import {
   defaultModalJSON,
   radioJSON,

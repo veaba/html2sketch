@@ -1,4 +1,4 @@
-import { setConfig } from 'html2sketch';
+import { setConfig } from '@html2sketch';
 
 let tempFetch: typeof window.HTML2SKETCH_FETCH_BASE64;
 beforeAll(() => {

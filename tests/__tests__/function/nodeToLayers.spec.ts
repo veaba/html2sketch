@@ -1,23 +1,12 @@
-<<<<<<< HEAD:test/__tests__/function/nodeToLayers.spec.ts
-import { Bitmap, nodeToLayers, Rectangle, SketchFormat } from '@html2sketch';
+import { nodeToLayers } from '@html2sketch';
+import type { Bitmap, Rectangle, SketchFormat } from '@html2sketch';
 import { vitestUrlResolve, setupTestNode, removeTestNode } from '@test-utils';
 import { expect } from 'vitest'
 
 describe('nodeToLayers', () => {
-  beforeAll(async () => {
+  beforeAll(async() => {
     const textPath = vitestUrlResolve(import.meta.url, './html/nodeToLayers.html');
     const innerHTML = await fetch(textPath).then(text => text.text())
-=======
-import { setupTestNode } from '@test-utils';
-import { readFileSync } from 'fs';
-import type { Bitmap, Rectangle, SketchFormat } from 'html2sketch';
-import { nodeToLayers } from 'html2sketch';
-import { resolve } from 'path';
-
-describe('nodeToLayers', () => {
-  beforeAll(() => {
-    const innerHTML = readFileSync(resolve(__dirname, './html/nodeToLayers.html'), 'utf-8');
->>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:tests/__tests__/function/nodeToLayers.spec.ts
     setupTestNode(innerHTML);
   });
   afterAll(() => removeTestNode())

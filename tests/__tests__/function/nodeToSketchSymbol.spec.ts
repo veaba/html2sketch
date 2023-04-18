@@ -1,8 +1,4 @@
-<<<<<<< HEAD:test/__tests__/function/nodeToSketchSymbol.spec.ts
 import { nodeToSymbol, ResizingConstraint } from '@html2sketch';
-=======
-import { nodeToSymbol, ResizingConstraint } from 'html2sketch';
->>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:test/__tests__/function/nodeToSymbol.spec.ts
 import {
   calcResizingConstraint,
   getGroupLayout,
