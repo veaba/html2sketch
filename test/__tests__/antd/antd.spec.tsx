@@ -1,15 +1,15 @@
 import { Button, Modal, Radio, Tooltip } from 'antd';
+import React from 'react';
 
 import { PlusOutlined, UpCircleOutlined } from '@ant-design/icons';
 import type SketchFormat from '@sketch-hq/sketch-file-format-ts';
-import { isUpdate,render, removeTestNode } from '@test-utils';
-import { nodeToGroup, nodeToSymbol } from '@html2sketch';
+import { isUpdate, render } from '@test-utils';
+import { nodeToGroup, nodeToSymbol } from 'html2sketch';
 import {
   defaultModalJSON,
   radioJSON,
   saveJSONData,
-  // setupAntdTestEnv,
-  setupAntdTestVitestEnv,
+  setupAntdTestEnv,
   svgButtonJSON,
   svgIconJSON,
 } from './utils';
@@ -18,26 +18,15 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: PureTooltip } = Tooltip;
 
 describe('antd 组件库可正常解析', () => {
   beforeEach(async () => {
-    await setupAntdTestVitestEnv(); // await setupAntdTestEnv();
+    await setupAntdTestEnv();
   });
-
-  afterAll(() => removeTestNode())
 
   it('Radio 单选器', async () => {
     render(<Radio checked>html2sketch</Radio>);
-    // afterAll(() => removeTestNode())
 
     const node = document.getElementById('container') as HTMLDivElement;
 
-    const groupData = (await nodeToGroup(node))
-
-    console.log('要解析的 node=>', node)
-    console.log('解析后的 groupData=>', groupData)
-    
-    const group = groupData?.toSketchJSON()!;
-
-    console.log('isUpdate=>',isUpdate)
-    console.log('group 转 json =>',group)
+    const group = (await nodeToGroup(node)).toSketchJSON();
 
     if (isUpdate) {
       saveJSONData(group, 'radio');
@@ -45,25 +34,17 @@ describe('antd 组件库可正常解析', () => {
     const { frame, ...target } = group;
     const { frame: originFrame, ...origin } = radioJSON;
 
-    console.log('target=>', JSON.stringify(target).length, target.layers.length) // 1072，为什么是 0
-    console.log('origin=>', JSON.stringify(origin).length, origin.layers.length) // 13313，为什么是 2
-    console.log('')
-    /** @todo frame.width 如果是手动的会变*/
-    console.log('frame.width=>', frame.width)
-    console.log('JSON originFrame.width=>', originFrame.width)
-
-    expect(JSON.parse(JSON.stringify(target))).toMatchObject(origin); // ???
+    expect(JSON.parse(JSON.stringify(target))).toEqual(origin);
     expect(Math.round(frame.width)).toEqual(Math.round(originFrame.width));
   });
 
-  describe.skip('Svg', () => {
-    afterAll(() => removeTestNode())
+  describe('Svg', () => {
     it('svg icon', async () => {
       render(<PlusOutlined />);
 
       const node = document.getElementById('container') as HTMLDivElement;
 
-      const group = (await nodeToGroup(node))?.toSketchJSON();
+      const group = (await nodeToGroup(node)).toSketchJSON();
 
       if (isUpdate) {
         saveJSONData(group, 'svg-icon');
@@ -79,7 +60,7 @@ describe('antd 组件库可正常解析', () => {
 
       const node = document.getElementById('container') as HTMLDivElement;
 
-      const group = (await nodeToGroup(node))?.toSketchJSON()!;
+      const group = (await nodeToGroup(node)).toSketchJSON();
 
       if (isUpdate) {
         saveJSONData(group, 'svg-button');
@@ -88,7 +69,7 @@ describe('antd 组件库可正常解析', () => {
     });
   });
 
-  it.skip('Modal', async () => {
+  it('Modal', async () => {
     render(
       <div style={{ position: 'relative', minHeight: 400 }}>
         <Modal._InternalPanelDoNotUseOrYouWillBeFired
@@ -104,7 +85,6 @@ describe('antd 组件库可正常解析', () => {
         </Modal._InternalPanelDoNotUseOrYouWillBeFired>
       </div>,
     );
-    afterAll(() => removeTestNode())
 
     const node = document.getElementsByClassName('ant-modal')[0] as HTMLDivElement;
 
@@ -135,10 +115,8 @@ describe('antd 组件库可正常解析', () => {
   });
 
   it.skip('Tooltip', async () => {
-    
     render(<PureTooltip title="text" />);
-    afterAll(() => removeTestNode())
-    
+
     const node = document.getElementById('container') as HTMLDivElement;
 
     const group = (await nodeToGroup(node)).toSketchJSON();

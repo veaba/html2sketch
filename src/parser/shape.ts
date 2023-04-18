@@ -127,8 +127,6 @@ export const parseToShape = async (
   } else {
     // 使用内阴影来模拟单边描边
     const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth } = styles;
-
-    console.log(' 使用内阴影来模拟单边描边style=>', borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth)
     // 顶部描边
     const borderTopWidthFloat = parseFloat(borderTopWidth);
     if (borderTopWidthFloat !== 0) {

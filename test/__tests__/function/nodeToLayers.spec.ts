@@ -1,3 +1,4 @@
+<<<<<<< HEAD:test/__tests__/function/nodeToLayers.spec.ts
 import { Bitmap, nodeToLayers, Rectangle, SketchFormat } from '@html2sketch';
 import { vitestUrlResolve, setupTestNode, removeTestNode } from '@test-utils';
 import { expect } from 'vitest'
@@ -6,6 +7,17 @@ describe('nodeToLayers', () => {
   beforeAll(async () => {
     const textPath = vitestUrlResolve(import.meta.url, './html/nodeToLayers.html');
     const innerHTML = await fetch(textPath).then(text => text.text())
+=======
+import { setupTestNode } from '@test-utils';
+import { readFileSync } from 'fs';
+import type { Bitmap, Rectangle, SketchFormat } from 'html2sketch';
+import { nodeToLayers } from 'html2sketch';
+import { resolve } from 'path';
+
+describe('nodeToLayers', () => {
+  beforeAll(() => {
+    const innerHTML = readFileSync(resolve(__dirname, './html/nodeToLayers.html'), 'utf-8');
+>>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:tests/__tests__/function/nodeToLayers.spec.ts
     setupTestNode(innerHTML);
   });
   afterAll(() => removeTestNode())
@@ -52,9 +64,7 @@ describe('nodeToLayers', () => {
 
     expect(layers.length).toBe(1);
     const bitmap = layers[0] as Bitmap;
-    expect(bitmap.url).toBe(
-      'https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png',
-    );
+    expect(bitmap.url).toBe('https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png');
     const png = bitmap.toSketchJSON();
     expect(png._class).toBe('bitmap');
     // expect(png.frame.width).toBe(200);
@@ -99,7 +109,7 @@ describe('nodeToLayers', () => {
     expect(layers.length).toBe(1);
   });
 
-  it('input 正常解析', async () => {
+  it('input 正常解析2', async () => {
     const node = document.getElementById('input-center') as HTMLInputElement;
     const layers = await nodeToLayers(node);
 

@@ -8,6 +8,7 @@ describe('isDefaultStyles', () => {
       backgroundImage: 'none',
       borderWidth: '0px',
       boxShadow: 'none',
+      overflow: 'visible',
     } as CSSStyleDeclaration;
 
     expect(isDefaultStyles(styles)).toBeTruthy();

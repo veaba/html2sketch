@@ -1,7 +1,7 @@
 import React from 'react';
 import { omit } from 'lodash';
 
-import { nodeToSymbol } from '@html2sketch';
+import { nodeToSymbol } from 'html2sketch';
 import {
   inlineImageJSON,
   isUpdate,
@@ -10,7 +10,7 @@ import {
   render,
   setupTestEnv,
 } from '@test-utils';
-import { waitForImageLoaded } from '@html2sketch/utils/image';
+import { waitForImageLoaded } from 'html2sketch/utils/image';
 
 describe('测试图片', () => {
   it('inline 的图片类型正常', async () => {

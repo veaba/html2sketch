@@ -3,8 +3,8 @@ import type { CommandC, CommandL, SVGCommand } from 'svg-pathdata/lib/types';
 import BaseLayer from '../Base/BaseLayer';
 import { defaultExportOptions } from '../utils';
 
-import type { CGPoint, ShapePathType, BezierPoint, StartPoint, BaseLayerParams } from '../../types';
-import { SketchFormat } from '../../types'
+import type { BaseLayerParams, BezierPoint, CGPoint, ShapePathType, StartPoint } from '../../types';
+import { SketchFormat } from '../../types';
 
 interface ContextPoints {
   thisPoint: BezierPoint;
@@ -44,8 +44,7 @@ class ShapePath extends BaseLayer {
   /**
    * 单个 ShapePath 的布尔类型
    */
-  booleanOperation: SketchFormat.BooleanOperation =
-    SketchFormat.BooleanOperation.None;
+  booleanOperation: SketchFormat.BooleanOperation = SketchFormat.BooleanOperation.None;
 
   /**
    * 转为 Sketch JSON 文件
@@ -86,10 +85,7 @@ class ShapePath extends BaseLayer {
   /**
    * 将内部点转为 Sketch Point
    */
-  bezierPointToSketchPoint = (
-    point: BezierPoint,
-    index: number,
-  ): SketchFormat.CurvePoint => {
+  bezierPointToSketchPoint = (point: BezierPoint, index: number): SketchFormat.CurvePoint => {
     const { nextPoint, thisPoint } = this.getContextPoints(index);
 
     let hasCurveFrom = false;
@@ -262,8 +258,7 @@ class ShapePath extends BaseLayer {
     const { minX, minY } = bounds;
 
     // 判断是否闭合
-    const isClose =
-      svgPathData.commands.findIndex((i) => i.type === SVGPathData.CLOSE_PATH) > -1;
+    const isClose = svgPathData.commands.findIndex((i) => i.type === SVGPathData.CLOSE_PATH) > -1;
 
     const shapePath = svgPathData
       .translate(-minX, -minY)
@@ -286,6 +281,7 @@ class ShapePath extends BaseLayer {
         return true;
       })
       .map((i) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { relative: _, ...res } = i;
 
         return res as BezierPoint;

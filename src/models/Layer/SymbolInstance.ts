@@ -1,6 +1,7 @@
-import { defaultExportOptions } from '../utils';
+import type { BaseLayerParams } from '../../types';
+import { SketchFormat } from '../../types';
 import BaseLayer from '../Base/BaseLayer';
-import { BaseLayerParams, SketchFormat } from '../../types';
+import { defaultExportOptions } from '../utils';
 
 interface SymbolInstanceInitParams extends BaseLayerParams {
   symbolID: string;
@@ -22,6 +23,7 @@ class SymbolInstance extends BaseLayer {
       frame: this.frame.toSketchJSON(),
 
       booleanOperation: SketchFormat.BooleanOperation.None,
+      isTemplate: false,
       do_objectID: this.id,
       symbolID: this.symbolID,
       exportOptions: defaultExportOptions,
@@ -35,7 +37,6 @@ class SymbolInstance extends BaseLayer {
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
-      isTemplate: false,
       isLocked: this.locked,
       name: this.name,
       rotation: 0,

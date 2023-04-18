@@ -1,3 +1,4 @@
+<<<<<<< HEAD:test/__tests__/function/nodeToGroup.spec.ts
 import { nodeToGroup } from '@html2sketch';
 import { vitestUrlResolve, setupTestNode, removeTestNode } from '@test-utils'
 import { describe, expect, it, beforeAll  } from 'vitest'
@@ -7,6 +8,16 @@ describe('nodeToGroup', () => {
   beforeAll(async () => {
     const textPath = vitestUrlResolve(import.meta.url,'./html/nodeToGroup.html')
     const innerHTML = await fetch(textPath).then(text => text.text())
+=======
+import { setupTestNode } from '@test-utils';
+import { readFileSync } from 'fs';
+import { nodeToGroup } from 'html2sketch';
+import { resolve } from 'path';
+
+describe('nodeToGroup', () => {
+  beforeAll(() => {
+    const innerHTML = readFileSync(resolve(__dirname, './html/nodeToGroup.html'), 'utf-8');
+>>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:tests/__tests__/function/nodeToGroup.spec.ts
     setupTestNode(innerHTML);
   });
   afterAll(() => removeTestNode())
@@ -16,6 +27,7 @@ describe('nodeToGroup', () => {
     try {
       await nodeToGroup(node);
     } catch (e) {
+      // eslint-disable-next-line jest/no-conditional-expect
       expect(e).toStrictEqual(Error('解析对象不存在 请检查传入对象'));
     }
   });
@@ -54,13 +66,20 @@ describe('nodeToGroup', () => {
   });
 
   it('继承坐标 旋转', async () => {
-    const node = (document.getElementById('svg') as unknown) as SVGElement;
+    const node = document.getElementById('svg') as unknown as SVGElement;
     const group = await nodeToGroup(node);
     expect(group.class).toBe('svg');
     expect(group.layers.length).toBe(2);
     const [mask, g] = group.layers;
     expect(mask.class).toBe('rectangle');
     expect(g.class).toBe('group');
-    expect(g.rotation).toBe(15);
+    expect(Math.round(g.rotation)).toBe(15);
+  });
+
+  it('单个元素有 overflow 不需要蒙版', async () => {
+    const node = document.getElementById('overflow-only') as HTMLDivElement;
+    const group = await nodeToGroup(node);
+    expect(group.layers.length).toBe(0);
+    expect(group.hasClippingMask).toBeFalsy();
   });
 });

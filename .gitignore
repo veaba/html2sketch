@@ -31,8 +31,9 @@ lambda/mock/index.js
 .temp/**
 
 # umi
-.umi
-.umi-production
+.dumi/tmp
+.dumi/tmp-test
+.dumi/tmp-production
 
 # screenshot
 screenshot
@@ -41,3 +42,5 @@ example/.temp/*
 .eslintcache
 techUI*
 __snapshots__
+docs-dist
+.env

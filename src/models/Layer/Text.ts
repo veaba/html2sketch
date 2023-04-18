@@ -1,8 +1,10 @@
 import BaseLayer from '../Base/BaseLayer';
 
+import type { BaseLayerParams } from '../../types';
+import { SketchFormat } from '../../types';
+import type { TextStyleParams } from '../Style/TextStyle';
+import TextStyle from '../Style/TextStyle';
 import { defaultExportOptions } from '../utils';
-import TextStyle, { TextStyleParams } from '../Style/TextStyle';
-import { BaseLayerParams, SketchFormat, ResizingConstraint } from '../../types';
 
 interface TextInitParams extends BaseLayerParams {
   text: string;
@@ -20,7 +22,6 @@ class Text extends BaseLayer {
     this.text = text;
     this.textStyle = new TextStyle(style);
     this.multiline = multiline || false;
-    this.setResizingConstraint(ResizingConstraint.None);
 
     // 1 - width is set to Fixed
     // 0 - width is set to Auto - this helps us avoid issues with browser setting too small width causing line to break
@@ -58,6 +59,7 @@ class Text extends BaseLayer {
       isFixedToViewport: false,
       isFlippedHorizontal: false,
       isFlippedVertical: false,
+      isTemplate: false,
       isLocked: this.locked,
       isVisible: true,
       isTemplate: false,
@@ -72,7 +74,10 @@ class Text extends BaseLayer {
       frame: this.frame.toSketchJSON(),
       clippingMaskMode: 0,
       hasClippingMask: this.hasClippingMask,
-      style: this.style.toSketchJSON(),
+      style: {
+        ...this.style.toSketchJSON(),
+        textStyle: this.textStyle.toSketchJSON(),
+      },
       attributedString: this.getSketchAttributedString(),
       automaticallyDrawOnUnderlyingPath: false,
       dontSynchroniseWithSymbol: false,

@@ -102,6 +102,9 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
     // 只有一个形状时不需要裁剪
     layer.hasClippingMask = false;
 
+    // 只有一个形状时不需要裁剪
+    layer.hasClippingMask = false;
+
     console.info('return 11=>', layer as Group)
     return layer as Group;
   }

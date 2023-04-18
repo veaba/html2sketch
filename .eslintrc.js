@@ -1,3 +1,5 @@
+const config = require('@umijs/max/eslint');
+
 module.exports = {
   globals: {
     page: true,
@@ -8,18 +10,10 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
+  ...config,
   rules: {
-    'import/no-extraneous-dependencies': 0,
-    'import/default': 0,
-    'import/no-named-as-default-member': 0,
-    'import/named': 0,
+    ...config.rules,
     'no-param-reassign': 0,
-    'consistent-return': 0,
-    'no-restricted-globals': 0,
-    'no-continue': 0,
-    'no-shadow': 'warn',
-    'no-console': 0,
-    'no-underscore-dangle': 0,
   },
   settings: {
     'import/resolver': {

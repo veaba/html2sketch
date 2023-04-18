@@ -32,7 +32,7 @@ describe('checkNoNull', () => {
     const json = {
       _class: 'rectangle',
       name: '',
-      resizingConstraint: 63,
+      resizingConstraint: 27,
       frame: {
         _class: 'rect',
         constrainProportions: false,

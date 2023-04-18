@@ -1,11 +1,12 @@
 import { uuid } from '../../utils/utils';
-import Group from '../Layer/Group';
-import Page from './Page';
-import Color from '../Style/Color';
+import type Group from '../Layer/Group';
+import type Color from '../Style/Color';
+import type ColorAsset from '../Style/ColorAsset';
 import Style from '../Style/Style';
-import ColorAsset from '../Style/ColorAsset';
+import type Page from './Page';
 
-import { AnyLayer, SketchFormat } from '../../types';
+import type { AnyLayer } from '../../types';
+import { SketchFormat } from '../../types';
 
 /**
  * Sketch 文档对象
@@ -133,17 +134,7 @@ class SketchDocument {
         _class: 'swatchContainer',
         objects: this.swatches,
       },
-      fontReferences: [],
-      documentState: 1,
-      // @TODO ==>
-      patchInfo: {
-        _class: 'MSImmutablePatchInfo',
-        baseVersionID: this.id,
-        lastIntegratedPatchID: this.id,
-        localPatches: [],
-        receivedPatches: [],
-      },
-      perDocumentLibraries: []
+      perDocumentLibraries: [],
     };
   }
 
