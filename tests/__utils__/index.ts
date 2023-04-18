@@ -1,9 +1,7 @@
-// @vitest-environment node
 /* istanbul ignore file */
 
 import SketchFormat from '@sketch-hq/sketch-file-format-ts';
-import ReactDOM from 'react-dom';
-import * as ReactDOMClient from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { writeFileSync } from 'fs'; // readFileSync
 import { join, resolve } from 'path';
 
@@ -104,8 +102,8 @@ export const vitestUrlResolve = (url: string, filePath: string) => {
 
 export const render = (App: JSX.Element) => {
   const container = document.getElementById('container')
-  const root = ReactDOMClient.createRoot(container)
-  root.render(App);
+  const root = createRoot(container)
+  return root.render(App);
 };
 
 export const setupTestEnv = () => {

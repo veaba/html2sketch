@@ -1,23 +1,11 @@
-<<<<<<< HEAD:test/__tests__/function/nodeToGroup.spec.ts
 import { nodeToGroup } from '@html2sketch';
 import { vitestUrlResolve, setupTestNode, removeTestNode } from '@test-utils'
 import { describe, expect, it, beforeAll  } from 'vitest'
-
 
 describe('nodeToGroup', () => {
   beforeAll(async () => {
     const textPath = vitestUrlResolve(import.meta.url,'./html/nodeToGroup.html')
     const innerHTML = await fetch(textPath).then(text => text.text())
-=======
-import { setupTestNode } from '@test-utils';
-import { readFileSync } from 'fs';
-import { nodeToGroup } from 'html2sketch';
-import { resolve } from 'path';
-
-describe('nodeToGroup', () => {
-  beforeAll(() => {
-    const innerHTML = readFileSync(resolve(__dirname, './html/nodeToGroup.html'), 'utf-8');
->>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:tests/__tests__/function/nodeToGroup.spec.ts
     setupTestNode(innerHTML);
   });
   afterAll(() => removeTestNode())

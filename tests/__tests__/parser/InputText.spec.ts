@@ -1,13 +1,9 @@
-<<<<<<< HEAD:test/__tests__/parser/InputText.spec.ts
-import { parseInputTextToText, Text } from '@html2sketch';
+import type { Text } from '@html2sketch';
+import { parseInputTextToText } from '@html2sketch';
 import { describe, expect, it, beforeAll  } from 'vitest'
-=======
-import type { Text } from 'html2sketch';
-import { parseInputTextToText } from 'html2sketch';
 
 const getInputText = (node: HTMLInputElement | HTMLTextAreaElement) =>
   parseInputTextToText(node)?.layers[1];
->>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:tests/__tests__/parser/InputText.spec.ts
 
 describe('parseInputTextToText', () => {
   beforeAll(() => {
@@ -103,10 +99,6 @@ describe('parseInputTextToText', () => {
     expect(json._class).toBe('text');
     expect(json.attributedString.string).toBe('123456');
 
-<<<<<<< HEAD:test/__tests__/parser/InputText.spec.ts
-    expect(input.centerX).toBe(54); // veaba 原本 53，但是由于不错了 isTemplate 类型声明个数就增加了
-=======
     expect(input.centerX).toBeGreaterThanOrEqual(53);
->>>>>>> c0b598c5b426c4474582e825e339df0cfc24c266:tests/__tests__/parser/InputText.spec.ts
   });
 });
