@@ -91,7 +91,7 @@ describe('isTextVisible', () => {
   it('正确识别不可见文本', () => {
     const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
     const visibleText = nodesToCheck.filter((n) =>
-      isTextVisible(getComputedStyle(n, null)),
+      isTextVisible(getComputedStyle(n)),
     );
 
     expect(visibleText).toEqual([]);

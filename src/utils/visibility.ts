@@ -44,7 +44,7 @@ export function isNodeVisible(
     visibility,
     display,
     clip,
-  } = getComputedStyle(node, null),
+  } = getComputedStyle(node),
 ) {
   // skip node when display is set to none for itself or an ancestor
   // helps us catch things such as <noscript>

@@ -36,6 +36,7 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
   if (node.nodeName !== 'svg') {
     const childNodeList = getChildNodeList(node);
 
+    console.log('childNodeList=>', childNodeList.length, childNodeList)
     // Recursively collect child groups for child nodes
     for (let i = 0; i < childNodeList.length; i += 1) {
       const childNode = childNodeList[i];
@@ -66,6 +67,7 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
   const group = new Group({ x: left, y: top, width, height });
   const groupStyle = new Style();
 
+  console.log('group 哈哈=>', group.layers.length, group.layers)
   groupStyle.opacity = opacity;
   group.style = groupStyle;
 
@@ -105,11 +107,17 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
     // 只有一个形状时不需要裁剪
     layer.hasClippingMask = false;
 
-    console.info('return 11=>', layer as Group)
     return layer as Group;
   }
 
   console.info('解析group.layers=>', group.layers)
+
+  if (options && options.getGroupName) {
+    group.name = options.getGroupName(node);
+  } else {
+    group.name = getName(node.nodeName);
+  }
+
   /**
    * @todo 不应该丢失吧==
    * 舍弃类似 <div></div>
@@ -125,18 +133,12 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
     // @ts-ignore
     // eslint-disable-next-line consistent-return
     // @todo 为什么是 return？？
+    // return
     // return group
-  }
-
-  if (options && options.getGroupName) {
-    group.name = options.getGroupName(node);
-  } else {
-    group.name = getName(node.nodeName);
   }
 
   group.className = node.className;
   console.info('%c输出 Group 为:', 'font-weight:bold;color:#4590f7;', group);
-  console.info('return 33=>', group)
   return group;
 };
 

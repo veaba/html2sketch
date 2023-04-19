@@ -31,7 +31,9 @@ import { isTextVisible } from '../utils/visibility';
  */
 const nodeToLayers = async (node: Element): Promise<AnyLayer[]> => {
   const layers: any[] = [];
-  const styles: CSSStyleDeclaration = getComputedStyle(node, null);
+  const styles: CSSStyleDeclaration = getComputedStyle(node);
+
+
 
   // ---------- 处理节点 ---------- //
 

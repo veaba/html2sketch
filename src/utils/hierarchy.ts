@@ -8,8 +8,8 @@ export const getChildNodeList = (node: Element) =>
     .filter((el) => isNodeVisible(el))
     // 根据 z-index 排序 将顶上的元素放上面
     .sort((a, b) => {
-      const computedA = getComputedStyle(a, null).zIndex;
-      const computedB = getComputedStyle(b, null).zIndex;
+      const computedA = getComputedStyle(a).zIndex;
+      const computedB = getComputedStyle(b).zIndex;
       const zIndexA = isNaN(Number(computedA)) ? 0 : +computedA;
       const zIndexB = isNaN(Number(computedB)) ? 0 : +computedB;
 
@@ -26,8 +26,8 @@ export const orderNodeList = (nodes: Element[]) => {
       .filter((node) => isNodeVisible(node))
       // 根据 z-index 排序 将顶上的元素放上面
       .sort((a, b) => {
-        const computedA = getComputedStyle(a, null).zIndex;
-        const computedB = getComputedStyle(b, null).zIndex;
+        const computedA = getComputedStyle(a).zIndex;
+        const computedB = getComputedStyle(b).zIndex;
         const zIndexA = isNaN(Number(computedA)) ? 0 : +computedA;
         const zIndexB = isNaN(Number(computedB)) ? 0 : +computedB;
 

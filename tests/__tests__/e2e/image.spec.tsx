@@ -1,3 +1,7 @@
+/**
+ * 由于 base64 生成因真实 browser 与原仓库 jsdom 有差异
+ * 此单测反向更新了 inlineImageJSON 的 base64
+*/
 import { omit } from 'lodash';
 import { nodeToSymbol } from '@html2sketch';
 import {
@@ -30,14 +34,13 @@ describe('测试图片', () => {
 
     await waitForImageLoaded(node);
     const image = (await nodeToSymbol(node)).toSketchJSON();
-
     expect(image).toBeTruthy();
 
     if (isUpdate) {
       outputJSONData(image, 'inline-image');
     }
     expect(omit(image, 'frame')).toEqual(omit(inlineImageJSON, 'frame'));
-  },30000);
+  },3000);
 
   it('PNG图片链接类型正常', async () => {
     render(
@@ -58,5 +61,5 @@ describe('测试图片', () => {
     }
 
     expect(omit(image, 'frame')).toStrictEqual(omit(pngURLImageJSON, 'frame'));
-  }, 30000);
+  }, 3000);
 });

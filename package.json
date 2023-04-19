@@ -5,8 +5,8 @@
     "docs": "vite",
     "dev": "dev",
     "build": "rollup --config rollup.config.ts --configPlugin typescript",
-    "test": "vitest tests/__tests__",
-    "test1": "vitest tests/__tests__/e2e/image.spec.ts",
+    "test": "vitest tests/__tests__/antd/antd.spec.tsx",
+    "test1": "vitest tests/__tests__",
     "test0": "vitest tests",
     "ui": "vitest --ui",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./test"

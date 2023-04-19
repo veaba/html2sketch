@@ -28,7 +28,7 @@ export const getTextLinesAndRange = (textNode: Node) => {
  * @param textNode
  */
 export const getTextAbsBCR = (parentNode: Element, textNode: Node) => {
-  const styles: CSSStyleDeclaration = getComputedStyle(parentNode, null);
+  const styles: CSSStyleDeclaration = getComputedStyle(parentNode);
   const nodeBCR = parentNode.getBoundingClientRect();
 
   const { lines, rangeBCR } = getTextLinesAndRange(textNode);

@@ -42,10 +42,11 @@ export const parseToShape = async (
   if (!styles) {
     /**
      * https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
-     * 对原 repo 进行设定第二个参数，原因如果没有这个 null，vitest 跑的时候不太稳定，此处是为了确保首次正确
-     * 比如 是 0.666667 实际处理可能是 0.666667 | 1
+     * https://github.com/zooniverse/Panoptes-Front-End/issues/6019
+     * https://bugzilla.mozilla.org/show_bug.cgi?id=1361195
+     * 跟显示器缩放有关系
     */
-    styles = getComputedStyle(node, null);
+    styles = getComputedStyle(node);
   }
 
   const { overflow } = styles;

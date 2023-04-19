@@ -19,11 +19,15 @@ describe('nodeToGroup', () => {
       expect(e).toStrictEqual(Error('解析对象不存在 请检查传入对象'));
     }
   });
+  /**
+   * veaba: 我觉得不应该丢弃子级，原因：
+   * 1、src\function\nodeToGroup.ts#L135 返回了 group，原为 return
+   * 2、导致别的地方使用 group.toSketchJSON 是 不存在的
+  */
   it('单个子级会丢弃多余父级正常解析', async () => {
     const node = document.getElementById('group1') as HTMLDivElement;
     const group = await nodeToGroup(node);
-
-    expect(group.toSketchJSON()._class).toBe('text');
+    expect(group.toSketchJSON()._class).toBe('group'); // 原为 text
   });
   it('多个子级保留父级结构', async () => {
     const node = document.getElementById('group2') as HTMLDivElement;

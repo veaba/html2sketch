@@ -100,9 +100,9 @@ export const vitestUrlResolve = (url: string, filePath: string) => {
   return origin + resolve(pathname,'../',filePath);
 };
 
-export const render = (App: JSX.Element) => {
+export const render = async (App: JSX.Element) => {
   const container = document.getElementById('container')
-  const root = createRoot(container)
+  const root = await createRoot(container)
   return root.render(App);
 };
 

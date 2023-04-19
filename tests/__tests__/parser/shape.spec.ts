@@ -1,6 +1,8 @@
 /**
  * vitest 使用的是真实 browser，原测试参数做微调
  * vitest 真实测试，导致 offsetY 值有抖动
+ * 原因：跟 getComputedStyle 方法处理样式，当显示器缩放有关系
+ * 比如 1px 在缩放 150% 后，实际为 0.666667px
 */
 import { Bitmap, Group, parseToShape, Rectangle } from '@html2sketch';
 import { removeTestNode, setupTestNode, vitestUrlResolve } from '@test-utils';
@@ -8,10 +10,6 @@ import { describe, expect, it, beforeAll, afterAll } from 'vitest';
 
 describe('parseToShape', () => {
   beforeAll(async () => {
-    // const innerHTML = readFileSync(
-    //   resolve(__dirname, './html/shape.html'),
-    //   'utf-8',
-    // );
     const textPath = vitestUrlResolve(import.meta.url, './html/shape.html')
     const response = await fetch(textPath).then(text => text.text())
     setupTestNode(response);
@@ -134,7 +132,7 @@ describe('parseToShape', () => {
     expect(top.offsetX).toBe(0);
 
     console.log('border color不一致时正常解析=>',top.offsetX, top.offsetY)
-    expect(top.offsetY).toBe(0.666667); 
+    expect(top.offsetY).toBe(1); // 跟缩放有关系，如果缩放 150%，则为：0.666667
   });
   it('dashed-border 正常解析', async () => {
     const node = document.getElementById('dashed-border') as HTMLDivElement;
@@ -161,17 +159,17 @@ describe('parseToShape', () => {
     expect(shadows?.length).toBe(4);
     // 1 Top
     const shadow1 = shadows?.[0];
-    expect(shadow1?.offsetY).toBe(2.66667);
+    expect(shadow1?.offsetY).toBe(3);
     expect(shadow1?.color.red).toBe(1);
     expect(shadow1?.blurRadius).toBe(0);
     expect(shadow1?.spread).toBe(0);
     // 2 Right
     const shadow2 = shadows?.[1];
-    expect(shadow2?.offsetX).toBe(-0.666667);
+    expect(shadow2?.offsetX).toBe(-1);
     expect(shadow2?.color.green).toBe(1);
     // 3 Bottom
     const shadow3 = shadows?.[2];
-    expect(shadow3?.offsetY).toBe(-2.66667);
+    expect(shadow3?.offsetY).toBe(-3);
     expect(shadow3?.color.green).toBe(0);
     expect(shadow3?.color.red).toBe(0);
     expect(shadow3?.color.blue).toBe(0);

@@ -212,7 +212,6 @@ class Style extends BaseStyle {
    * */
   addInnerShadow(params = defaultShadowInput) {
     const { color, blur, offsetX, offsetY, spread } = params;
-
     const shadow = new InnerShadow({
       blurRadius: blur,
       color,

@@ -1,6 +1,11 @@
 > - Cloner 注释：
-> - getComputedStyle 存在抖动（待查），本仓库是加了第二个参数 `null`，确保首次是正确的，但刷新多次是不对
+> - getComputedStyle 存在抖动，跟显示器的缩放有关系，比如 4k 下缩放 150%，则导致则会相应缩放
+> - getComputedStyle 在 显示器 4k(3840 x 2160) 下 borderWidth = 1px 显示为 0.666667，公式：0.666667*1.5 ≈ 1
+> - getComputedStyle 在 显示器 1080p(1920 x 1080) 下 borderWidth = 1px 显示为 1
+> - 参考 [Classifier: Text Task gain too much height ("rows") when Firefox's text-only zoom is enabled](https://github.com/zooniverse/Panoptes-Front-End/issues/6019)
+> - 参考 [Regression from bug 1358382 - Missing separators and mispositioned search engines tiles on the searchbar bar if DPI > 100%](https://bugzilla.mozilla.org/show_bug.cgi?id=1361195)
 > - 由于[antd/html2sketch](https://github.com/antd/html2sketch) 使用 jsdom 做 ui 测试版本过老，导致更换 vitest 做真实 ui 测试 `canvas.toDataURL()` 生成的 base64 是稍微有区别的
+
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> English | [简体中文](./README.zh-CN.md)
 
