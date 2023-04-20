@@ -36,7 +36,6 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
   if (node.nodeName !== 'svg') {
     const childNodeList = getChildNodeList(node);
 
-    console.log('childNodeList=>', childNodeList.length, childNodeList)
     // Recursively collect child groups for child nodes
     for (let i = 0; i < childNodeList.length; i += 1) {
       const childNode = childNodeList[i];
@@ -67,7 +66,6 @@ const nodeToGroup = async (node: Element, options?: Options): Promise<Group> => 
   const group = new Group({ x: left, y: top, width, height });
   const groupStyle = new Style();
 
-  console.log('group 哈哈=>', group.layers.length, group.layers)
   groupStyle.opacity = opacity;
   group.style = groupStyle;
 

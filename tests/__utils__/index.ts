@@ -63,15 +63,13 @@ export const isUpdate = process.env.UPDATE === '1';
 
 /**
  * 初始化测试节点（配合 removeTestNode 方法使用）
+ * @todo 对 id __vitestDiv 插入 innerHTML内容
  * @param innerHTML
  * @param id
  */
 export const setupTestNode = (innerHTML: string) => {
   const node = document.createElement('div');
-  const child = document.createElement('div')
-  child.innerHTML = innerHTML
   node.id = '__vitestDiv'
-  node.appendChild(child)
   node.innerHTML = innerHTML;
   document.body.prepend(node);
 };
