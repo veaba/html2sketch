@@ -30,11 +30,13 @@ export default defineConfig({
   },
   define:{
     IS_TEST_ENV: true,
-    __ROOT__: JSON.stringify(__dirname),
-    __TESTS__: JSON.stringify(resolve(__dirname, './tests/__tests__')),
   },
   test: {
     globals: true,
+    // reporters:["html"],
+    coverage: {
+      provider: "istanbul" // c8(browser mode no support), istanbul
+    },
     browser: {
       enabled: true,
       name: 'chrome',

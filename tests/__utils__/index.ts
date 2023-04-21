@@ -79,7 +79,8 @@ export const setupTestNode = (innerHTML: string) => {
  * 请务必使用 removeTestNode 放到移除 node
 */
 export const removeTestNode = () => {
-  document.body.removeChild(document.getElementById('__vitestDiv') as HTMLElement );
+  const testNode = document.getElementById('__vitestDiv')! as HTMLElement;
+  testNode && document.body.removeChild(testNode);
 }
 
 /**

@@ -9,7 +9,7 @@
 import { Button, Modal, Radio, Tooltip } from 'antd';
 import { PlusOutlined, UpCircleOutlined } from '@ant-design/icons';
 import type SketchFormat from '@sketch-hq/sketch-file-format-ts';
-import { isUpdate, render, removeTestNode } from '@test-utils';
+import { isUpdate, render, removeTestNode, setupTestNode } from '@test-utils';
 import { nodeToGroup, nodeToSymbol } from '@html2sketch';
 import {
   defaultModalJSON,
@@ -24,17 +24,24 @@ import {
 const { _InternalPanelDoNotUseOrYouWillBeFired: PureTooltip } = Tooltip;
 
 describe('antd 组件库可正常解析', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     await setupAntdTestVitestEnv();
+  })
+  beforeEach(async () => {
+    setupTestNode('<div id="container"><div>')
   });
 
-  afterAll(() => removeTestNode())
+  afterEach(() => {
+    removeTestNode();
+  })
 
-  /** you问题 */
+  /** 
+   * 原仓库的 radioJSON.json frame.width 111.484375 不正确的，（现改为 107.03125)
+   * 原仓库的 radioJSON.json .layers[1].frame.width 79.484375 不正确的，（现改为 75.03125)
+   */
   it('Radio 单选器', async () => {
     await render(<Radio checked>html2sketch</Radio>);
     await sleep(1)
-    // afterAll(() => removeTestNode())
 
     const node = document.getElementById('container') as HTMLDivElement;
 
@@ -46,16 +53,18 @@ describe('antd 组件库可正常解析', () => {
     
     const { frame, ...target } = group;
     const { frame: originFrame, ...origin } = radioJSON;
+
     expect(JSON.parse(JSON.stringify(target))).toEqual(origin);
     expect(Math.round(frame.width)).toEqual(Math.round(originFrame.width));
   });
 
-  describe.skip('Svg', () => {
+  /**
+   * @todo 为什么 下面两个只能同时支持一个呢
+  */
+  describe('Svg', () => {
     it('svg icon', async () => {
       await render(<PlusOutlined />);
       await sleep(1)
-      afterAll(() => removeTestNode())
-
       const node = document.getElementById('container') as HTMLDivElement;
 
       const group = (await nodeToGroup(node)).toSketchJSON();
@@ -63,6 +72,7 @@ describe('antd 组件库可正常解析', () => {
       if (isUpdate) {
         saveJSONData(group, 'svg-icon');
       }
+      // expect(group.layers[0]).toMatchObject(svgIconJSON.layers[0])
       expect(group).toMatchObject(svgIconJSON);
     });
     it('SVG 和按钮', async () => {
@@ -71,10 +81,7 @@ describe('antd 组件库可正常解析', () => {
           文本
         </Button>,
       );
-
-      await sleep(1)
-
-      afterAll(() => removeTestNode())
+      await sleep(2)
 
       const node = document.getElementById('container') as HTMLDivElement;
 
@@ -83,11 +90,20 @@ describe('antd 组件库可正常解析', () => {
       if (isUpdate) {
         saveJSONData(group, 'svg-button');
       }
+      expect(group.layers[0]).toMatchObject(svgButtonJSON.layers[0]);
+      const {layers: _, ...a} = group;
+      const {layers, ...b} = svgButtonJSON
+      expect({...a}).toMatchObject({...b});
+
+      // layers { frame :{"y": 8.75}}, 7=>8.75
+      // expect(group.layers[0]).toMatchObject(svgButtonJSON.layers[0]);
+      // expect(group.layers[1]).toMatchObject(svgButtonJSON.layers[1]);
+      expect(group.layers[2]).toMatchObject(svgButtonJSON.layers[2]);
       expect(group).toMatchObject(svgButtonJSON);
     });
   });
 
-  it.skip('Modal', async () => {
+  it('Modal', async () => {
     await render(
       <div style={{ position: 'relative', minHeight: 400 }}>
         <Modal._InternalPanelDoNotUseOrYouWillBeFired
@@ -135,10 +151,9 @@ describe('antd 组件库可正常解析', () => {
     });
   });
 
-  it.skip('Tooltip', async () => {
+  it.todo('Tooltip', async () => {
     await render(<PureTooltip title="text" />);
     await sleep(1)
-    afterAll(() => removeTestNode())
     const node = document.getElementById('container') as HTMLDivElement;
 
     const group = (await nodeToGroup(node)).toSketchJSON();

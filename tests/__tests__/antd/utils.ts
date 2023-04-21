@@ -72,9 +72,5 @@ export const setupAntdTestEnv = () =>
 
       document.head.prepend(script);
     });
-
-    // 3. 创建 dom 容器, 由于 vitest 是真实的，所以此处遵从原 repo 写死宽度
-    setupTestNode('<div id="container" style="width: 111.484375px"><div>')
-
     resolve();
   });

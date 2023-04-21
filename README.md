@@ -6,6 +6,15 @@
 > - 参考 [Regression from bug 1358382 - Missing separators and mispositioned search engines tiles on the searchbar bar if DPI > 100%](https://bugzilla.mozilla.org/show_bug.cgi?id=1361195)
 > - 由于[antd/html2sketch](https://github.com/antd/html2sketch) 使用 jsdom 做 ui 测试版本过老，导致更换 vitest 做真实 ui 测试 `canvas.toDataURL()` 生成的 base64 是稍微有区别的
 
+## Use vitest test
+
+![vitest](public/images/vitest-334.png)
+
+```shell
+# vitest 输出报告
+npx vite preview --base __vitest__ --outDir html
+```
+
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> English | [简体中文](./README.zh-CN.md)
 
