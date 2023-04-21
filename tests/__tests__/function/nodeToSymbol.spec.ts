@@ -4,7 +4,6 @@ import {
   getGroupLayout,
 } from '@html2sketch/utils/layout';
 import { setupTestNode } from '@test-utils';
-import { describe, test, expect, it, beforeAll  } from 'vitest'
 
 beforeAll(() => {
   const dataUrl =

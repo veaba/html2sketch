@@ -62,7 +62,6 @@ class Text extends BaseLayer {
       isTemplate: false,
       isLocked: this.locked,
       isVisible: true,
-      isTemplate: false,
       name: this.name || this.class,
       nameIsFixed: this.nameIsFixed,
       layerListExpandedType: 0,

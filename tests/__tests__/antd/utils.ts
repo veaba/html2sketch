@@ -1,6 +1,5 @@
 import { writeFileSync } from 'fs';
 import { join } from 'path';
-import { setupTestNode } from '@test-utils'
 
 export {default as defaultModalJSON } from './json/default-modal.json';
 export {default as radioJSON } from './json/radio.json';

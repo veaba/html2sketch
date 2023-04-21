@@ -12,6 +12,14 @@ export default defineConfig({
     react(),
     svgLoader()
   ],
+  optimizeDeps:{
+    exclude: [
+      '@sketch-hq/sketch-file-format-ts',
+      '@vitest/browser',
+      'vitest',
+      'lodash'
+    ]
+  },
   assetsInclude:['**/*.html'],
   resolve: {
     alias: {

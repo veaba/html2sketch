@@ -188,7 +188,7 @@ const inlineStyles = (node: SVGElement) => {
   SvgStyleProperties.forEach((prop) => {
     const propName = prop[0] as string;
     const propDefaultValue = prop[1];
-    const propCurrentValue = styles[propName];
+    const propCurrentValue = styles[propName as keyof CSSStyleDeclaration];
     const propAttributeValue = node.getAttribute(propName);
 
     if (
@@ -198,7 +198,7 @@ const inlineStyles = (node: SVGElement) => {
       propName !== 'd' &&
       propName !== 'font-family'
     ) {
-      node.style[propName] = propCurrentValue;
+      node.style[propName as any] = propCurrentValue as keyof typeof CSSStyleDeclaration;
     }
   });
 };

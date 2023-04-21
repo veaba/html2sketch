@@ -28,6 +28,7 @@ export const shapePathData = {
   isFlippedHorizontal: false,
   isFlippedVertical: false,
   isLocked: false,
+  isTemplate: false,
   isVisible: true,
   layerListExpandedType: 0,
   name: '路径',
@@ -144,10 +145,20 @@ export const compPath: TestPathData = {
       y: 280.00000024911,
     }).toSketchJSON(),
     isClosed: true,
+    /**
+    * cornerStyle: 0,
+    * 类型为：CornerStyle = enum {
+    *   Rounded = 0,
+    *   RoundedInverted = 1,
+    *   Angled = 2,
+    *   Squared = 3
+    * }
+    */
     points: [
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.6980017075466572, -0.020465632616830685}',
         curveMode: 4,
         curveTo: '{0.09400512426958466, 0.004399496208155765}',
@@ -158,6 +169,7 @@ export const compPath: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.5249051517030365}',
         curveMode: 3,
         curveTo: '{1, 0.060069027914235316}',
@@ -168,6 +180,7 @@ export const compPath: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.7902668800304646, 0.9941781920755667}',
         curveMode: 3,
         curveTo: '{0.954103919510996, 0.7606873566513045}',
@@ -178,6 +191,7 @@ export const compPath: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.25688156086148595, 0.8202868078573917}',
         curveMode: 3,
         curveTo: '{0.5121451793435009, 1.0125548715363522}',
@@ -188,6 +202,7 @@ export const compPath: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0.54233106252817}',
         curveMode: 4,
         curveTo: '{0.14999301561394532, 0.6696710961502698}',
@@ -266,6 +281,7 @@ export const singleRoundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0}',
         curveMode: 1,
         curveTo: '{0, 0}',
@@ -276,6 +292,7 @@ export const singleRoundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.8404733615907374, 0}',
         curveMode: 4,
         curveTo: '{0.6436872802316591, 0}',
@@ -286,6 +303,7 @@ export const singleRoundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.4360564147986646}',
         curveMode: 4,
         curveTo: '{1, 0.1952291067656878}',
@@ -296,6 +314,7 @@ export const singleRoundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 1}',
         curveMode: 1,
         curveTo: '{1, 1}',
@@ -306,6 +325,7 @@ export const singleRoundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 1}',
         curveMode: 1,
         curveTo: '{0, 1}',
@@ -375,6 +395,7 @@ export const rect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0}',
         curveMode: 1,
         curveTo: '{0, 0}',
@@ -385,6 +406,7 @@ export const rect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0}',
         curveMode: 1,
         curveTo: '{1, 0}',
@@ -395,6 +417,7 @@ export const rect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 1}',
         curveMode: 1,
         curveTo: '{1, 1}',
@@ -405,6 +428,7 @@ export const rect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 1}',
         curveMode: 1,
         curveTo: '{0, 1}',
@@ -501,6 +525,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.9891304347826086, 0}',
         curveMode: 4,
         curveTo: '{0.9951086956521739, 0}',
@@ -511,6 +536,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.0048913043478260865, 0}',
         curveMode: 4,
         curveTo: '{0.010869565217391304, 0}',
@@ -521,6 +547,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0.10526315789473684}',
         curveMode: 4,
         curveTo: '{0, 0.04736842105263158}',
@@ -531,6 +558,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0.9526315789473685}',
         curveMode: 4,
         curveTo: '{0, 0.8947368421052632}',
@@ -541,6 +569,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.010869565217391304, 1}',
         curveMode: 4,
         curveTo: '{0.004891304347826087, 1}',
@@ -551,6 +580,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.9951086956521739, 1}',
         curveMode: 4,
         curveTo: '{0.9891304347826086, 1}',
@@ -561,6 +591,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.8947368421052632}',
         curveMode: 4,
         curveTo: '{1, 0.9526315789473685}',
@@ -571,6 +602,7 @@ export const roundRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.047368421052631574}',
         curveMode: 4,
         curveTo: '{1, 0.10526315789473684}',
@@ -644,6 +676,7 @@ export const unclosedRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0}',
         curveMode: 1,
         curveTo: '{0, 0}',
@@ -654,6 +687,7 @@ export const unclosedRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.8404733615907372, 0}',
         curveMode: 4,
         curveTo: '{0.6436872802316591, 0}',
@@ -664,6 +698,7 @@ export const unclosedRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.4360564147986646}',
         curveMode: 4,
         curveTo: '{1, 0.1952291067656878}',
@@ -674,6 +709,7 @@ export const unclosedRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 1}',
         curveMode: 1,
         curveTo: '{1, 1}',
@@ -684,6 +720,7 @@ export const unclosedRect: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 1}',
         curveMode: 1,
         curveTo: '{0, 1}',
@@ -816,6 +853,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.5133248399992646, 0.004690048149804349}',
         curveMode: 4,
         curveTo: '{0.5173421906682137, 0.012604540006713702}',
@@ -826,6 +864,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.493128049928784, -7.796914110299981e-17}',
         curveMode: 3,
         curveTo: '{0.5068719500712158, -7.796914110299981e-17}',
@@ -836,6 +875,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.48265780933178615, 0.012604540006713698}',
         curveMode: 4,
         curveTo: '{0.48667516000073524, 0.004690048149804346}',
@@ -846,6 +886,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{-0.00614998345600793, 0.9717559860689977}',
         curveMode: 4,
         curveTo: '{0.004067121123714938, 0.951527165280577}',
@@ -856,6 +897,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.021543747378504056, 1}',
         curveMode: 4,
         curveTo: '{0.004067121123714938, 1}',
@@ -866,6 +908,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.17506918724749762, 1}',
         curveMode: 4,
         curveTo: '{0.14764432758613624, 1}',
@@ -876,6 +919,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.21728196143214212, 0.9496187859609146}',
         curveMode: 4,
         curveTo: '{0.201149691043106, 0.9812978826673093}',
@@ -886,6 +930,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.4998655644134246, 0.3946620798031108}',
         curveMode: 1,
         curveTo: '{0.4998655644134246, 0.3946620798031108}',
@@ -896,6 +941,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.7988503089568938, 0.9812978826673091}',
         curveMode: 4,
         curveTo: '{0.7827180385678576, 0.9496187859609145}',
@@ -906,6 +952,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.8523556724138635, 1}',
         curveMode: 4,
         curveTo: '{0.8246619415793516, 1}',
@@ -916,6 +963,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.9959328788762849, 1}',
         curveMode: 4,
         curveTo: '{0.9784562526214958, 1}',
@@ -926,6 +974,7 @@ export const upArrow: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.9959328788762849, 0.951527165280577}',
         curveMode: 4,
         curveTo: '{1.0061499834560077, 0.9717559860689976}',
@@ -1055,6 +1104,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.10526315789473684, 3.947459643111668e-17}',
         curveMode: 4,
         curveTo: '{0.03508771929824561, 3.947459643111668e-17}',
@@ -1065,6 +1115,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.9649122807017543, 3.947459643111668e-17}',
         curveMode: 4,
         curveTo: '{0.8947368421052632, 3.947459643111668e-17}',
@@ -1075,6 +1126,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.011111111111111151}',
         curveMode: 4,
         curveTo: '{1, 0.003703703703703743}',
@@ -1085,6 +1137,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{1, 0.9962962962962963}',
         curveMode: 4,
         curveTo: '{1, 0.9888888888888889}',
@@ -1095,6 +1148,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.8947368421052632, 1}',
         curveMode: 4,
         curveTo: '{0.9649122807017543, 1}',
@@ -1105,6 +1159,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0.03508771929824562, 1}',
         curveMode: 4,
         curveTo: '{0.10526315789473684, 1}',
@@ -1115,6 +1170,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0.9888888888888889}',
         curveMode: 4,
         curveTo: '{0, 0.9962962962962963}',
@@ -1125,6 +1181,7 @@ export const plus: TestPathData = {
       {
         _class: 'curvePoint',
         cornerRadius: 0,
+        cornerStyle: 0,
         curveFrom: '{0, 0.0037037037037037437}',
         curveMode: 4,
         curveTo: '{0, 0.011111111111111151}',

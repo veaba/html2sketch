@@ -292,7 +292,7 @@ class TextStyle {
    * */
   fixFontFamilyInfo = (
     _family: string,
-    weight?: string,
+    weight?: keyof FontWeightEnum,
     // _fontStyle?: string,
   ): string => {
     const defaultFontFamily = 'PingFangSC';
@@ -353,7 +353,7 @@ class TextStyle {
         MSAttributedStringFontAttribute: {
           _class: 'fontDescriptor',
           attributes: {
-            name: this.fixFontFamilyInfo(this.fontFamily, this.fontWeight),
+            name: this.fixFontFamilyInfo(this.fontFamily, this.fontWeight as keyof FontWeightEnum),
             size: this.fontSize,
           },
         },
