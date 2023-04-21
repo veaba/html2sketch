@@ -43,6 +43,7 @@ export * from './testSvgData';
 export const outputJSONData = (
   json:
     | SketchFormat.Group
+    | SketchFormat.SymbolMaster 
     | SketchFormat.ShapeGroup
     | SketchFormat.Text
     | SketchFormat.Rectangle
