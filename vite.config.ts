@@ -14,6 +14,7 @@ export default defineConfig({
   ],
   optimizeDeps:{
     exclude: [
+      'transformation-matrix',
       '@sketch-hq/sketch-file-format-ts',
       '@vitest/browser',
       'vitest',
