@@ -1,5 +1,5 @@
 import Color from 'color';
-import { createClipPathMask } from '@html2sketch/utils/clipPath';
+import { createClipPathMask } from '../utils/clipPath';
 import { Bitmap, Frame, Group, Rectangle, Shadow, Style, Svg } from '../models';
 import type { ColorParam } from '../models/Style/Color';
 import { defaultNodeStyle } from '../models/utils';

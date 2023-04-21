@@ -1,5 +1,5 @@
 import Text from '../models/Layer/Text';
-import { Group } from '@html2sketch/models';
+import { Group } from '../models';
 import { createOverflowMask } from '../utils/overflow';
 import { getTextLinesAndRange } from '../utils/text';
 

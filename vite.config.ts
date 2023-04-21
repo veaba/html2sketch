@@ -12,6 +12,12 @@ export default defineConfig({
     react(),
     svgLoader()
   ],
+  build:{
+    lib:{
+      entry: resolve(__dirname, 'dist/esm-bundler.js'),
+      name: 'html2Sketch',
+    }
+  },
   optimizeDeps:{
     exclude: [
       'transformation-matrix',
